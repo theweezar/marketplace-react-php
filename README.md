@@ -27,7 +27,7 @@ yarn build
 ```
 yarn eject
 ```
-### `Watch SCSS`
+### Watch SCSS
 ```
 sass scss/style.scss css/style.css -w
 ``` 
