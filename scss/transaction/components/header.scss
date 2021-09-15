@@ -1,0 +1,103 @@
+$badge-text-size : .65em;
+$input-text-size: 1em;
+$input-stroke-gray-color : #8f9bb3;
+$input-text-gray-color : #adb8cf;
+
+header{
+    nav{
+        .branding__area{
+            .branding__logobox{
+                svg{
+                    @include media-breakpoint-up( xl ){
+                        width: 100px;
+                        height: 50px;
+                    }
+                }
+            }
+            .branding__badge_box{
+                .branding__badge{
+                    font-size: $badge-text-size;    
+                    line-height: $badge-text-size;
+                    margin: 0 10px;
+                    padding: 7px;
+                    border-radius: 10px; 
+                    @include media-breakpoint-up( xl ){
+                        margin-left: 0px;
+                        margin-right: 10px;
+                    }
+                }
+                .branding__badge_select_btn{
+                    svg{
+                        width: .8em;
+                    }
+                }
+            }
+            .branding__badge_select_box{
+
+
+            }
+        }
+        .navigation__area{
+            .navigation__btn{
+                width: calc(100% + 2px);
+                .btn{
+                    
+                    svg{
+                        width: 1.2em;
+                        height: 1.2em;
+                    }
+                }
+            }
+            .navigation__list{
+                
+                ul {
+                    display: flex;
+                    height: 100%;
+                    li{
+                        border: 1px solid black;
+                        list-style: none;
+                        max-width: 150px;
+                        margin: 5px;
+                        margin-right: 30px;
+                        padding: 5px 15px;
+                        border-radius: 5px; 
+                        a{
+                            color: #000;
+                            text-decoration: none;
+                        }
+                        .btn{
+                            margin-left: 10px;
+                        }
+                    }
+                }
+            }
+        }
+        .searching__area{
+            .searching__input{
+                position: relative;
+                margin: 1em .3em;
+                input[type=text]{
+                    padding: .5em 3em ;
+                    width: 100%;
+                    max-height: 3em;
+                    border-radius: .5em;
+                    font-size: $input-text-size;
+                    border-color: $input-text-gray-color;
+                    outline: none;
+                }
+                svg{
+                    top: 50%;
+                    left: .8em;
+                    width: 1.2em;
+                    height: 1.2em;
+                    position: absolute;
+                    transform: translateY(-50%);
+                    path{
+                        stroke: $input-stroke-gray-color !important;
+                        stroke-width: 2.5;
+                    }
+                }
+            }
+        }
+    }
+}

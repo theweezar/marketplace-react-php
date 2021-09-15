@@ -1,10 +1,10 @@
-import MarketplaceLayout from './layouts/marketplaceLayout';
+import TransactionsLayout from './layouts/transactionLayout';
 
 function App() {
     return (
-        <MarketplaceLayout>
+        <TransactionsLayout>
             <p>Body</p>
-        </MarketplaceLayout>
+        </TransactionsLayout>
     );
 }
 

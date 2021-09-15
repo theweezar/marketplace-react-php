@@ -1,1 +1,30 @@
-@import './components/component';
+@import './components/header';
+$bgcolor-info : #e9f5fe;
+$color-info: #1273ea;
+
+/* Common  */
+.background-info{
+    background-color: $bgcolor-info !important;
+    color: $color-info !important;
+}
+.btn{
+    outline: none !important;
+}
+.custom-container{
+    padding : 0 1em;
+    @include media-breakpoint-up( xl ){
+        padding : 0 2em;
+    }
+    @include media-breakpoint-up( xxl ){
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+footer{
+    font-size: 20px;
+    @include media-breakpoint-up( md ){
+        font-size: 30px;
+    }
+}
+
+/* Specific */ 

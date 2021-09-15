@@ -1,0 +1,23 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap/scss/mixins";
+
+*{
+    transition: 0.2s;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/** 
+--breakpoint-xs: 0;
+--breakpoint-sm: 576px;
+--breakpoint-md: 768px;
+--breakpoint-lg: 992px;
+--breakpoint-xl: 1200px;
+--breakpoint-xml: 1400px; -- fail
+--breakpoint-xxl: 1600px;
+--breakpoint-fhd: 1920px;
+--breakpoint-rt: 2560px;
+--breakpoint-rt15: 2880px;
+--breakpoint-uhd: 3840px;
+--breakpoint-s4k: 4096px;
+*/
