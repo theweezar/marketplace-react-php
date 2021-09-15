@@ -1,9 +1,10 @@
+import Header from "./header";
+import '../scss/layout.scss';
+
 function MarketplaceLayout({ children }) {
     return (
         <div>
-            <p>
-                Header
-            </p>
+            <Header/>
             {children}
             <p>
                 Footer

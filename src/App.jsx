@@ -1,10 +1,13 @@
 import MarketplaceLayout from './layouts/marketplaceLayout';
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
     return (
-        <MarketplaceLayout>
-            <p>Body</p>
-        </MarketplaceLayout>
+        <BrowserRouter>
+            <MarketplaceLayout>
+                <p>Body</p>
+            </MarketplaceLayout>
+        </BrowserRouter>
     );
 }
 
