@@ -29,5 +29,5 @@ yarn eject
 ```
 ### Watch SCSS
 ```
-sass scss/style.scss css/style.css -w
+sass scss/<name>.scss src/static/css/<name>.css -w
 ``` 
