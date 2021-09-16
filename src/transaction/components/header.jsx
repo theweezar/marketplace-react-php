@@ -1,11 +1,15 @@
 import { useState } from "react";
-import { BsFillCaretDownFill, BsDot} from "react-icons/bs";
+import { BsFillCaretDownFill, BsDot } from "react-icons/bs";
 import { HiMenu } from "react-icons/hi";
 import { GrSearch } from "react-icons/gr";
 import { GoPrimitiveDot } from "react-icons/go";
 
 /**
  * Use in layout/transaction
+ * Header/nav includes 3 small Components:
+ *     - Branding_area
+ *     - Navigation_area
+ *     - Searching_area
  * @param {*} props
  * @returns
  */
@@ -21,10 +25,12 @@ const Header = (props) => {
 
   return (
     <header>
-      {/* Header only navbar, which helps futher improvement */}
-      <nav className="row py-2 py-lg-0 ">
-        <div className="branding__area d-flex align-items-center col-6 col-lg-2 ">
-          <div className="branding__logobox">
+      {/* ---1-NAV ------------------------------------------------- */}
+      <nav className="row py-2 py-lg-0 align-items-center ">
+        {/* --1.1-BRANDING_AREA -------------------------------- */}
+        <div className="branding__area d-flex col-6 col-lg-2 ">
+          {/* --1.1.1-BRANDING_LOGOBOX -------------- */}
+          <div className="logobox">
             <svg
               width="82"
               height="32"
@@ -51,54 +57,102 @@ const Header = (props) => {
               ></path>
             </svg>
           </div>
+
+          {/* --1.1.2-BRANDING_BADEGE_BOX ------------ */}
           <div className="branding__badge_box d-flex align-items-center">
-            <div className="badge background-info text-uppercase branding__badge ">{BRAND_BADGES[0]}</div>
-            <div className="d-none d-md-flex desktop branding__badge_select">
-              <button className="btn branding__badge_select_btn ">
-                <BsFillCaretDownFill />
-              </button>
+            <div className="custom-badge background-info text-uppercase ">
+              {BRAND_BADGES[0]}
+            </div>
+            <button className="btn select-btn d-none d-lg-block ">
+              <BsFillCaretDownFill />
+            </button>
+          </div>
+
+          {/* --1.1.3-BRANDING_BADEGE_SELECT_BOX ------------ */}
+          <div className="d-none select_box branding__badge_select_box border ">
+            <div class="item">
+              <span class="custom-dot">
+                <GoPrimitiveDot />
+              </span>
+              <span class="info">
+                {BRAND_NAME} {BRAND_BADGES[1]}
+              </span>
             </div>
           </div>
-          <div className="branding__badge_select_box d-none d-lg-block ">
-              <div class="branding__badge_select_item">
-                <span class="custom-dot">
-                  <GoPrimitiveDot/>
-                </span>
-                <span class="info">{BRAND_NAME} {BRAND_BADGES[1]}</span>
-              </div>
-          </div>
         </div>
+
+        {/* --1.2-NAVIGATION_AREA -------------------------------- */}
         <div className="navigation__area col-6 col-lg-7 text-end text-lg-left">
-            <div className="navigation__btn d-lg-none">
-                <button class=" btn p-0 m-0">
-                    < HiMenu />
+          {/* --1.2.1-NAVIGATION_BTN ------------ */}
+            <button class=" btn p-0 m-0 d-lg-none">
+              <HiMenu />
+            </button>
+
+          {/* --1.2.2-NAVIGATION_LIST ------------ */}
+          <div className="list-box d-none d-lg-flex">
+            <div className="list">
+              <div className="item">
+                <a href="">Home</a>
+              </div>
+              <div className="item active">
+                <a href="">Transactions</a>
+              </div>
+              <div className="item">
+                <a href="">Blocks</a>
+              </div>
+              <div className="item">
+                <a href="" class="">
+                  Accounts
+                </a>
+                <button className="btn p-0">
+                  <BsFillCaretDownFill />
                 </button>
+              </div>
+              <div className="item">
+                <a href="" class="">
+                  Tokens
+                </a>
+                <button className="btn p-0 ">
+                  <BsFillCaretDownFill />
+                </button>
+              </div>
             </div>
-            <div className="navigation__list d-none d-lg-flex">
-                <ul className="m-0">
-                    <li><a href="">Home</a></li>
-                    <li className="active"><a href="">Transactions</a></li>
-                    <li><a href="">Blocks</a></li>
-                    <li>
-                        <a href="" class="">Accounts</a>
-                        <button className="btn p-0">
-                            <BsFillCaretDownFill />
-                        </button>
-                    </li>
-                    <li>
-                        <a href="" class="">Tokens</a>
-                        <button className="btn p-0 ">
-                            <BsFillCaretDownFill />
-                        </button>
-                    </li>
-                </ul>
+          </div>
+
+          {/* --1.2.3-NAVIGATION_LIST ------------ */}
+          <div
+            className="select_box navigation__list_select_box d-none border"
+            id="accounts-box"
+          >
+            <div className="item">All Accounts</div>
+            <div className="item">
+              Verified Contracts
             </div>
-            
+          </div>
+
+          {/* --1.2.4-NAVIGATION_LIST ------------ */}
+          <div
+            className="select_box navigation__list_select_box d-none border"
+            id="tokens-box"
+          >
+            <div className="item">ERC20 Tokens</div>
+            <div className="item">ERC20 Transfers</div>
+            <div className="line"></div>
+            <div className="item">ERC721 Tokens</div>
+            <div className="item">ERC721 Transfers</div>
+          </div>
         </div>
+
+        {/* --1.3-SEARCHING_AREA -------------------------------- */}
         <div className="searching__area col-12 col-lg-3 p-0 m-0">
-          <div className="searching__input ">
-            <input type="text" className="form-control" placeholder={INPUT_PLACEHOLDER_TEXT} />
-                < GrSearch />
+          {/* --1.3.1-NAVIGATION_LIST ------------ */}
+          <div className="inputbox ">
+            <input
+              type="text"
+              className="form-control"
+              placeholder={INPUT_PLACEHOLDER_TEXT}
+            />
+            <GrSearch />
           </div>
         </div>
       </nav>
