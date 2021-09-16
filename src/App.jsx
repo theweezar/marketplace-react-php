@@ -1,11 +1,12 @@
-import MarketplaceLayout from './layouts/marketplaceLayout';
+import { MarketplaceLayout } from './layouts/MarketplaceLayout';
+import { SearchResult } from './search/SearchResult';
 import { BrowserRouter } from "react-router-dom";
 
 function App() {
     return (
         <BrowserRouter>
             <MarketplaceLayout>
-                <p>Body</p>
+                <SearchResult/>
             </MarketplaceLayout>
         </BrowserRouter>
     );

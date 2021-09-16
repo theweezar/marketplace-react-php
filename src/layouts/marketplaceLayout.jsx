@@ -1,10 +1,13 @@
-import Header from "./header";
+import { Header } from "./Header";
+import { RightSideBar } from "./RightSideBar";
 import '../scss/layout.scss';
 
-function MarketplaceLayout({ children }) {
+export function MarketplaceLayout({ children }) {
     return (
         <div>
             <Header/>
+            <RightSideBar/>
+            <div className="invisible-block"></div>
             {children}
             <p>
                 Footer
@@ -12,5 +15,3 @@ function MarketplaceLayout({ children }) {
         </div>
     );
 }
-
-export default MarketplaceLayout;

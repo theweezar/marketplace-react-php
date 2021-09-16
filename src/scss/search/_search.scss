@@ -1,0 +1,9 @@
+.search-result-wrapper {
+    min-height: 100vh;
+    background-color: $color-gray-5;
+
+    .invisible-block {
+        height: 120px;
+        background-color: $color-gray-5;
+    }
+}

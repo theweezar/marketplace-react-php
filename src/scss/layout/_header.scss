@@ -1,4 +1,13 @@
-.header {
+.header-wrapper {
+    position: fixed;
+    width: 100%;
+
+    @include media-breakpoint-up(lg) {
+        position: relative;
+    }
+}
+
+.navigator-page {
     background-color: $color-gray-6;
 
     .logo-container {
@@ -12,32 +21,48 @@
     }
 }
 
-.navigator {
+.navigator-cat {
     padding: 12px 8px;
     background-color: $color-gray-5;
     border-bottom: 1px solid $color-gray-2;
 
-    .item-dropdown {
+    .btn-df {
         padding: 8px 12px;
         color: white;
         font-size: 14px;
         border: 1px solid $color-gray-2;
-        border-radius: 4px;
-
-        .item-start-icon {
-            width: 24px;
-            height: 24px;
-        }
+        border-radius: 0;
     }
 
-    .category-dropdown {
+    .btn-dropdown {
         background-color: $color-gray-3;
         width: 120px;
         border: none;
+        border-radius: 4px;
         font-weight: 700;
     }
 
-    .filter-button {
+    .menu-cat {
+        .item-list {
+            ul {
+                border-radius: 4px;
+                background-color: $color-gray-3;
+            }
+
+            .item-cat {
+                width: 120px;
+                border: none;
+                font-weight: 700;
+            }
+
+            .ul-container {
+                margin-top: 4px;
+            }
+        }
+    }
+
+    .btn-filter {
         padding: 8px 20px;
+        border-radius: 4px;
     }
 }
