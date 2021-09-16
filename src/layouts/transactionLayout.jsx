@@ -12,12 +12,14 @@ import Footer from '../transaction/components/footer'
 const TransactionLayout = (props) => {
     document.title = 'Transaction'
     return (
+        <>
         <div className="custom-container">
         <Header>Header</Header>
         {/* For Routing and futher development */}
         {props.layout}
-        <Footer>Footer</Footer>
         </div>
+        <Footer>Footer</Footer>
+        </>
     );
 }
 

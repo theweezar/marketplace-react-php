@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { BsFillCaretDownFill, BsDot } from "react-icons/bs";
+import { useState, useEffect } from "react";
+import { BsFillCaretDownFill } from "react-icons/bs";
 import { HiMenu } from "react-icons/hi";
 import { GrSearch } from "react-icons/gr";
 import { GoPrimitiveDot } from "react-icons/go";
@@ -14,14 +14,102 @@ import { GoPrimitiveDot } from "react-icons/go";
  * @returns
  */
 const Header = (props) => {
-  /* Branding Area */
-  const BRAND_LOGO = "";
+  /* ------CONST ----------------- */
+  // 01.Branding Area
   const BRAND_NAME = "Ronin";
   const BRAND_BADGES = ["Mainnet", "Testnet"];
-  /* Navigation Area */
-
-  /* Searching Area */
+  // 02.Navigation Area
+  const NAVIGATION_ITEMS = [
+    {
+      active: false,
+      name: "Home",
+      route: "#",
+      options: [],
+    },
+    {
+      active: true,
+      name: "Transactions",
+      route: "#",
+      options: [],
+    },
+    {
+      active: false,
+      name: "Blocks",
+      route: "#",
+      options: [],
+    },
+    {
+      active: false,
+      name: "Accounts",
+      route: "#",
+      options: ["All accounts", "Vertified Contracts"],
+    },
+    {
+      active: false,
+      name: "Tokens",
+      route: "#",
+      options: [
+        "ERC20 Tokens",
+        "ERC20 Transfers",
+        "ERC721 Tokens",
+        "ERC721 Transfers",
+      ],
+    },
+  ];
+  const ACCOUNT_ITEMS = [
+    {
+      name: "All accounts",
+    },
+    {
+      name: "Verified Contracts",
+    },
+  ];
+  const TOKEN_ITEMS = [
+    {
+      type: "text",
+      name: "ERC20 Tokens",
+    },
+    {
+      type: "text",
+      name: "ERC20 Transfers",
+    },
+    {
+      type: "line",
+    },
+    {
+      type: "text",
+      name: "ERC721 Tokens",
+    },
+    {
+      type: "text",
+      name: "ERC721 Transfers",
+    },
+  ];
+  // 03.Searching Area
   const INPUT_PLACEHOLDER_TEXT = "Address, Txn Hash, Block, etc.";
+  /* -------STATES ----------------------- */
+  const [openBadgeBox, setOpenBadgeBox] = useState(false);
+  const [openAccountBox, setOpenAccountBox] = useState(false);
+  const [openTokenBox, setOpenTokenBox] = useState(false);
+
+  const onClickBadgeButton = () => {
+    setOpenBadgeBox(!openBadgeBox);
+  };
+
+  const onClickAccountButton = () => {
+    setOpenAccountBox(!openAccountBox);
+    setOpenTokenBox(false);
+  };
+
+  const onClickTokenButton = () => {
+    setOpenTokenBox(!openTokenBox);
+    setOpenAccountBox(false);
+  };
+  useEffect(() => {
+    console.log("openBadgeBox : " + openBadgeBox);
+    console.log("openAccountBox : " + openAccountBox);
+    console.log("openTokenBox : " + openTokenBox);
+  }, [openBadgeBox, openAccountBox, openTokenBox]);
 
   return (
     <header>
@@ -36,18 +124,18 @@ const Header = (props) => {
               height="32"
               viewBox="0 0 82 32"
               fill="none"
-              class="lg:hidden"
+              className="lg:hidden"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M2.47892 0H20.1412C21.5103 0 22.6202 1.10985 22.6202 2.47892V21.8758C22.6202 22.8091 22.1994 23.6928 21.4749 24.2812L12.4821 31.584C11.7992 32.1386 10.821 32.1386 10.1381 31.584L1.14527 24.2812C0.420723 23.6928 0 22.8091 0 21.8758V2.47892C0 1.10985 1.10985 0 2.47892 0Z"
                 fill="#1273EA"
               ></path>
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M17.042 3.71826C18.0688 3.71826 18.9012 4.55065 18.9012 5.57745V11.5744L18.9006 11.6234C18.8749 12.8464 17.8884 13.8332 16.6655 13.8592L16.6157 13.8598L16.6648 13.8603C17.8878 13.886 18.8745 14.8725 18.9006 16.0955L18.9012 16.1452V19.8965C18.9012 20.4301 18.6718 20.9381 18.2715 21.291L13.6012 25.4087L13.6013 17.0045C13.6013 15.9777 12.7689 15.1453 11.7421 15.1453H9.01763L9.01755 25.4087L4.3474 21.291C3.9471 20.9381 3.71777 20.4301 3.71777 19.8965V5.57745C3.71777 4.55065 4.55016 3.71826 5.57696 3.71826H17.042ZM13.6013 6.28935H9.01763V12.0029H11.7421C12.7689 12.0029 13.6013 11.1705 13.6013 10.1437V6.28935Z"
                 fill="white"
               ></path>
@@ -60,21 +148,29 @@ const Header = (props) => {
 
           {/* --1.1.2-BRANDING_BADEGE_BOX ------------ */}
           <div className="branding__badge_box d-flex align-items-center">
-            <div className="custom-badge background-info text-uppercase ">
+            <div className="custom-badge background-info text-uppercase " key={BRAND_BADGES[0]}>
               {BRAND_BADGES[0]}
             </div>
-            <button className="btn select-btn d-none d-lg-block ">
+            <button
+              className="btn select-btn d-none d-lg-block "
+              onClick={onClickBadgeButton}
+            >
               <BsFillCaretDownFill />
             </button>
           </div>
 
           {/* --1.1.3-BRANDING_BADEGE_SELECT_BOX ------------ */}
-          <div className="d-none select_box branding__badge_select_box border ">
-            <div class="item">
-              <span class="custom-dot">
+          <div
+            className={
+              (openBadgeBox ? "" : "d-none") +
+              " select_box branding__badge_select_box border "
+            }
+          >
+            <div className="item">
+              <span className="custom-dot">
                 <GoPrimitiveDot />
               </span>
-              <span class="info">
+              <span className="info">
                 {BRAND_NAME} {BRAND_BADGES[1]}
               </span>
             </div>
@@ -84,62 +180,70 @@ const Header = (props) => {
         {/* --1.2-NAVIGATION_AREA -------------------------------- */}
         <div className="navigation__area col-6 col-lg-7 text-end text-lg-left">
           {/* --1.2.1-NAVIGATION_BTN ------------ */}
-            <button class=" btn p-0 m-0 d-lg-none">
-              <HiMenu />
-            </button>
+          <button className=" btn p-0 m-0 d-lg-none">
+            <HiMenu />
+          </button>
 
           {/* --1.2.2-NAVIGATION_LIST ------------ */}
           <div className="list-box d-none d-lg-flex">
             <div className="list">
-              <div className="item">
-                <a href="">Home</a>
-              </div>
-              <div className="item active">
-                <a href="">Transactions</a>
-              </div>
-              <div className="item">
-                <a href="">Blocks</a>
-              </div>
-              <div className="item">
-                <a href="" class="">
-                  Accounts
-                </a>
-                <button className="btn p-0">
-                  <BsFillCaretDownFill />
-                </button>
-              </div>
-              <div className="item">
-                <a href="" class="">
-                  Tokens
-                </a>
-                <button className="btn p-0 ">
-                  <BsFillCaretDownFill />
-                </button>
-              </div>
+              {NAVIGATION_ITEMS.map((item) => (
+                <div
+                  key={item.name}
+                  className={item.active ? "item active" : "item"}
+                  onClick={
+                    item.name.toLowerCase().match("account")
+                      ? onClickAccountButton
+                      : onClickTokenButton
+                  }
+                >
+                  <a href={item.route}>{item.name}</a>
+                  {item.options.length === 0 ? (
+                    ""
+                  ) : (
+                    <button className="btn p-0">
+                      <BsFillCaretDownFill />
+                    </button>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
 
           {/* --1.2.3-NAVIGATION_LIST ------------ */}
           <div
-            className="select_box navigation__list_select_box d-none border"
+            className={
+              (openAccountBox ? "" : "d-none") +
+              " select_box navigation__list_select_box border"
+            }
             id="accounts-box"
           >
-            <div className="item">All Accounts</div>
-            <div className="item">
-              Verified Contracts
-            </div>
+            {ACCOUNT_ITEMS.map((item) => (
+              <div className="item" key={item.name}>
+                {item.name}
+              </div>
+            ))}
           </div>
 
           {/* --1.2.4-NAVIGATION_LIST ------------ */}
           <div
-            className="select_box navigation__list_select_box d-none border"
+            className={
+              (openTokenBox ? "" : "d-none") +
+              " select_box navigation__list_select_box border"
+            }
             id="tokens-box"
           >
-            <div className="item">ERC20 Tokens</div>
-            <div className="item">ERC20 Transfers</div>
-            <div className="line"></div>
-            <div className="item">ERC721 Tokens</div>
-            <div className="item">ERC721 Transfers</div>
+            {TOKEN_ITEMS.map((item) => {
+              if (item.type.toLowerCase().match("line")) {
+                return <div className="line" key={item.name}></div>;
+              } else {
+                return (
+                  <div className="item" key={item.name}>
+                    {item.name}
+                  </div>
+                );
+              }
+            })}
           </div>
         </div>
 
