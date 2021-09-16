@@ -1,8 +1,8 @@
 import React from 'react';
-import '../static/css/transaction.css' ;
+import '../scss/transaction.scss';
 import Header from '../transaction/components/header'
 import Footer from '../transaction/components/footer'
-
+ 
 /**
  * Transaction include const Header and Footer
  * can apply any Container to render

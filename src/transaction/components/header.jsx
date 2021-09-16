@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { BsFillCaretDownFill} from "react-icons/bs";
+import { BsFillCaretDownFill, BsDot} from "react-icons/bs";
 import { HiMenu } from "react-icons/hi";
 import { GrSearch } from "react-icons/gr";
+import { GoPrimitiveDot } from "react-icons/go";
 
 /**
  * Use in layout/transaction
@@ -21,9 +22,9 @@ const Header = (props) => {
   return (
     <header>
       {/* Header only navbar, which helps futher improvement */}
-      <nav className="row py-2 ">
-        <div className="branding__area row align-items-center col-6 col-lg-3 ">
-          <div className="branding__logobox col-6 col-md-3 col-lg-5">
+      <nav className="row py-2 py-lg-0 ">
+        <div className="branding__area d-flex align-items-center col-6 col-lg-2 ">
+          <div className="branding__logobox">
             <svg
               width="82"
               height="32"
@@ -50,7 +51,7 @@ const Header = (props) => {
               ></path>
             </svg>
           </div>
-          <div className="branding__badge_box col-6 col-md-4  p-md-0 d-md-flex align-items-center">
+          <div className="branding__badge_box d-flex align-items-center">
             <div className="badge background-info text-uppercase branding__badge ">{BRAND_BADGES[0]}</div>
             <div className="d-none d-md-flex desktop branding__badge_select">
               <button className="btn branding__badge_select_btn ">
@@ -58,24 +59,25 @@ const Header = (props) => {
               </button>
             </div>
           </div>
-          <div className="d-none branding__badge_select_box  ">
-            <ul>
-              <li>
-                {BRAND_NAME} {BRAND_BADGES[1]}
-              </li>
-            </ul>
+          <div className="branding__badge_select_box d-none d-lg-block ">
+              <div class="branding__badge_select_item">
+                <span class="custom-dot">
+                  <GoPrimitiveDot/>
+                </span>
+                <span class="info">{BRAND_NAME} {BRAND_BADGES[1]}</span>
+              </div>
           </div>
         </div>
-        <div className="navigation__area border col-6 col-lg-8 text-end text-lg-left p-0 m-0">
-            <div className="navigation__btn p-0 m-0 d-lg-none">
+        <div className="navigation__area col-6 col-lg-7 text-end text-lg-left">
+            <div className="navigation__btn d-lg-none">
                 <button class=" btn p-0 m-0">
                     < HiMenu />
                 </button>
             </div>
-            <div className="navigation__list d-none d-lg-flex ">
-                <ul className="p-0 m-0">
+            <div className="navigation__list d-none d-lg-flex">
+                <ul className="m-0">
                     <li><a href="">Home</a></li>
-                    <li><a href="">Transactions</a></li>
+                    <li className="active"><a href="">Transactions</a></li>
                     <li><a href="">Blocks</a></li>
                     <li>
                         <a href="" class="">Accounts</a>
@@ -93,7 +95,7 @@ const Header = (props) => {
             </div>
             
         </div>
-        <div className="searching__area col-12">
+        <div className="searching__area col-12 col-lg-3 p-0 m-0">
           <div className="searching__input ">
             <input type="text" className="form-control" placeholder={INPUT_PLACEHOLDER_TEXT} />
                 < GrSearch />
