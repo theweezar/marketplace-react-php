@@ -1,12 +1,3 @@
-.header-wrapper {
-    position: fixed;
-    width: 100%;
-
-    @include media-breakpoint-up(lg) {
-        position: relative;
-    }
-}
-
 .navigator-page {
     background-color: $color-gray-6;
 
@@ -26,14 +17,6 @@
     background-color: $color-gray-5;
     border-bottom: 1px solid $color-gray-2;
 
-    .btn-df {
-        padding: 8px 12px;
-        color: white;
-        font-size: 14px;
-        border: 1px solid $color-gray-2;
-        border-radius: 0;
-    }
-
     .btn-dropdown {
         background-color: $color-gray-3;
         width: 120px;
@@ -42,7 +25,7 @@
         font-weight: 700;
     }
 
-    .menu-cat {
+    .list-category {
         .item-list {
             ul {
                 border-radius: 4px;

@@ -1,9 +1,5 @@
 .search-result-wrapper {
-    min-height: 100vh;
+    height: calc(100vh - 110px);
     background-color: $color-gray-5;
-
-    .invisible-block {
-        height: 120px;
-        background-color: $color-gray-5;
-    }
+    overflow-y: scroll;
 }

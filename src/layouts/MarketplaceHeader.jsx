@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { BiDownArrow } from 'react-icons/bi';
-import { Button } from '../components/Button';
+import { Button, Button3E } from '../components/Button';
 import { IconImage24 } from '../components/IconImage';
-import { Select, Option } from '../components/Select';
+import { ListViewColumnAbsolute, Item } from '../components/List';
 import logo from '../static/images/logo.png';
 import tabAxie from '../static/images/tab-axie.png';
 import { useState } from 'react';
 
-export function Header() {
+export function MarketplaceHeader() {
     var options = [
         { id: Math.random().toString(36).substr(2, 9), value: 'Axies', startIcon: <IconImage24 src={tabAxie}/> },
         { id: Math.random().toString(36).substr(2, 9), value: 'Cat 2', startIcon: <IconImage24 src={tabAxie}/> },
@@ -36,19 +36,35 @@ export function Header() {
                 </div>
             </div>
             <div className="navigator-cat d-flex justify-between">
-                <Select className="menu-cat" selected={selected}>
+                {/* <Select className="menu-cat" selected={selected}>
                     <Button value={options[selected].value} startIcon={options[selected].startIcon} endIcon={<BiDownArrow/>} className="btn-dropdown"/>
                     {options.map((option, index) => {
                         return (
                             <Option setKey={index} key={index}>
-                                <Button value={option.value} startIcon={option.startIcon} endIcon={<></>} className="item-cat pointer" onClick={() => setSelected(index)}/>
+                                <Button value={option.value} startIcon={option.startIcon} className="item-cat pointer" onClick={() => setSelected(index)}/>
                             </Option>
                         );
                     })}
                 </Select>
-                <Button value="Filter" className="btn-filter" />
+                <Button value="Filter" className="btn-filter" /> */}
+                <div>
+                    <Button3E className="btn-dropdown">
+                        <IconImage24 src={tabAxie}/>
+                        <span>Axies</span>
+                        <BiDownArrow/>
+                    </Button3E>
+                    <ListViewColumnAbsolute className="list-category">
+                        <Item>
+                            <Button>
+                                Hello
+                            </Button>
+                        </Item>
+                    </ListViewColumnAbsolute>
+                </div>
+                <Button className="btn-filter">
+                    Filter
+                </Button>
             </div>
-
         </div>
     );
 }
