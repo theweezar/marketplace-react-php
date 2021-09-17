@@ -9,7 +9,7 @@ import tabAxie from '../static/images/tab-axie.png';
 import { useState } from 'react';
 
 export function MarketplaceHeader() {
-    var options = [
+    const options = [
         { id: Math.random().toString(36).substr(2, 9), value: 'Axies', startIcon: <IconImage24 src={tabAxie}/> },
         { id: Math.random().toString(36).substr(2, 9), value: 'Cat 2', startIcon: <IconImage24 src={tabAxie}/> },
         { id: Math.random().toString(36).substr(2, 9), value: 'Cat 3', startIcon: <IconImage24 src={tabAxie}/> },
@@ -36,29 +36,24 @@ export function MarketplaceHeader() {
                 </div>
             </div>
             <div className="navigator-cat d-flex justify-between">
-                {/* <Select className="menu-cat" selected={selected}>
-                    <Button value={options[selected].value} startIcon={options[selected].startIcon} endIcon={<BiDownArrow/>} className="btn-dropdown"/>
-                    {options.map((option, index) => {
-                        return (
-                            <Option setKey={index} key={index}>
-                                <Button value={option.value} startIcon={option.startIcon} className="item-cat pointer" onClick={() => setSelected(index)}/>
-                            </Option>
-                        );
-                    })}
-                </Select>
-                <Button value="Filter" className="btn-filter" /> */}
-                <div>
+                <div className="category-wrapper">
                     <Button3E className="btn-dropdown">
-                        <IconImage24 src={tabAxie}/>
-                        <span>Axies</span>
+                        {options[selected].startIcon}
+                        <span>{options[selected].value}</span>
                         <BiDownArrow/>
                     </Button3E>
-                    <ListViewColumnAbsolute className="list-category">
-                        <Item>
-                            <Button>
-                                Hello
-                            </Button>
-                        </Item>
+                    <ListViewColumnAbsolute className="list-category d-none">
+                        {options.map((option, index) => {
+                            return (
+                                <Item key={option.id}>
+                                    <Button3E className="item-category" onClick={() => setSelected(index)}>
+                                        {option.startIcon}
+                                        <span>{option.value}</span>
+                                        <></>
+                                    </Button3E>
+                                </Item>     
+                            );
+                        })}
                     </ListViewColumnAbsolute>
                 </div>
                 <Button className="btn-filter">

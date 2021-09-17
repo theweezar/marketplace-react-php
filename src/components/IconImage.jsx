@@ -1,3 +1,8 @@
+export function Image(props) {
+    return (
+        <img alt="icon24" className={props.className} srcSet={props.src} width="100%" height="auto" />
+    )
+}
 
 export function IconImage24(props) {
     return (

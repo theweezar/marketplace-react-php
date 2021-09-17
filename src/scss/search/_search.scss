@@ -2,4 +2,113 @@
     height: calc(100vh - 110px);
     background-color: $color-gray-5;
     overflow-y: scroll;
+    padding: 12px 8px;
+
+    .sort-price {
+        width: 160px;
+        .btn-sort-price {
+            padding: 8px 20px;
+            border-radius: 4px;
+        }
+
+        .list-sort-price {
+            .item-sort-price {
+                background-color: $color-gray-6;
+                padding: 8px 20px;
+                border: none;
+            }
+        }
+    }
+
+    .display-tile {
+        button {
+            font-size: 18px;
+            padding: 0 10px;
+
+            &:nth-child(1) {
+                border-radius: .25rem 0 0 .25rem;
+            }
+
+            &:nth-child(2) {
+                border-radius: 0 .25rem .25rem 0;
+            }
+
+            &.active {
+                background-color: $color-primary-6;
+                border: 1px solid $color-primary-4;
+            }
+        }
+    }
+
+    .search-result-content {
+        margin-top: 12px;
+
+        .product-amount {
+            color: white;
+            font-size: 20px;
+        }
+
+        .sort-sale {
+            width: 160px;
+            .btn-sale {
+                padding: 8px 20px;
+                border-radius: 4px;
+            }
+    
+            .list-sort-sale {
+                .item-sort-sale {
+                    background-color: $color-gray-6;
+                    padding: 8px 20px;
+                    border: none;
+                }
+            }
+        }
+
+        .product-tile-list {
+            margin-top: 24px;
+
+            .col-6 {
+                padding: 0 4px;
+            }
+
+            .product-tile {
+                margin: 4px 0px;
+    
+                a {
+                    text-decoration: none;
+                    color: white;
+                    font-size: 12px;
+    
+                    .card {
+                        background: $color-gray-4;
+                        border: 1px solid $color-gray-3;
+                    }
+        
+                    .card-body {
+                        padding: 16px 12px;
+    
+                        .product-id {
+                            background-color: $color-warning-4;
+                            padding: 2px 8px;
+                            border-radius: 4px;
+                        }
+    
+                        .breed-count {
+                            color: $color-gray-2;
+                        }
+    
+                        .product-name {
+                            margin: 8px 0 4px;
+                        }
+    
+                        .price-container {
+                            font-size: 16px;
+                            text-align: center;
+                            padding-bottom: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

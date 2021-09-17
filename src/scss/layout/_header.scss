@@ -15,7 +15,8 @@
 .navigator-cat {
     padding: 12px 8px;
     background-color: $color-gray-5;
-    border-bottom: 1px solid $color-gray-2;
+    border-bottom: 1px solid $color-gray-3;
+    border-top: 1px solid $color-gray-5;
 
     .btn-dropdown {
         background-color: $color-gray-3;
@@ -26,21 +27,19 @@
     }
 
     .list-category {
-        .item-list {
-            ul {
-                border-radius: 4px;
-                background-color: $color-gray-3;
-            }
+        ul {
+            border-radius: 4px;
+            background-color: $color-gray-3;
+        }
 
-            .item-cat {
-                width: 120px;
-                border: none;
-                font-weight: 700;
-            }
+        .item-category {
+            width: 120px;
+            border: none;
+            font-weight: 700;
+        }
 
-            .ul-container {
-                margin-top: 4px;
-            }
+        > div {
+            margin-top: 4px;
         }
     }
 
