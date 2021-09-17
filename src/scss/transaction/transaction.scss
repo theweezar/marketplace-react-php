@@ -1,7 +1,17 @@
 @import './components/header';
 @import './components/footer';
+
 $subtitle-text-color: #57627b;
+$mobile-box-bgcolor: #f5f8fc;
+$bgcolor-info: #e9f5fe;
+$color-info: #1273ea;
+$nonactive-btn-color: #b1d1f8;
+
 // COMMON
+.bold {
+    font-weight: bold;
+}
+
 .custom-container {
     margin: 0;
     padding: 0 1em;
@@ -19,39 +29,175 @@ $subtitle-text-color: #57627b;
 }
 
 // SPECIFIC
-.transaction{
+.transaction {
     padding: 0;
     margin: 20px 0 50px 0;
+
     // ------ 01 TITLE ----------------
-    .transaction__title_panel{
+    .transaction__title_panel {
+
         // ---- 01.1 TITLE BOX ------
-        .title-box{
-            .title{
+        .title-box {
+            .title {
                 font-weight: 600;
                 font-size: 1.5em;
                 padding: 0;
                 margin: 0;
             }
-            .subtitle{
+
+            .subtitle {
                 padding: 0;
                 margin-top: 5px;
                 font-size: .97em;
                 color: $subtitle-text-color;
             }
         }
+
         // ---- 01.2 PAGINATION BOX ------
-        .pagination-box{
+        .pagination-box {
+            position: relative;
+            margin-top: 15px;
+            border-radius: 8px;
+            background-color: $mobile-box-bgcolor;
 
-            .sub-box{
-                &.desktop-box{
-                    
-                }
-                &.mobile-box{
-                    .modal-box{
+            &:hover,
+            &.active {
+                border: 1px solid $color-info;
+                background-color: #e9f5ff;
+            }
 
+            .sub-box {
+
+                // &.desktop-box{
+                // }
+                &.mobile-box {
+                    display: flex;
+                    padding: 8px 12px;
+
+                    &>div {
+                        width: 50%;
+                        padding: 0;
+                        margin: 0;
+                        font-size: .95em;
+                    }
+
+                    .info-box {
+                        &>div {
+                            padding: 0;
+                            margin: 0;
+                        }
+
+                        .label-page {
+                            .bold {
+                                &:first-child {
+                                    margin-left: 5px;
+                                }
+                            }
+                        }
+
+                    }
+
+                    .btn-box {
+                        padding: 0;
+                        margin: 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-end;
+
+                        .pagination-btn {
+                            padding: 0;
+                            margin: 0;
+
+                            svg {
+                                width: 1.6em;
+                                height: 1.6em;
+                            }
+                        }
                     }
                 }
             }
-        }    
+
+            .modal-box {
+                position: absolute;
+                background: white;
+                transform: translateY(20%);
+                width: 100%;
+                max-width: 315px;
+                margin-left: auto;
+                margin-right: auto;
+                left: 0;
+                right: 0;
+                text-align: center;
+                padding: 15px 0;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                box-shadow: 0px 0px 10px $bgcolor-info, 0px 0px 10px rgba(0, 0, 0, 0.3);
+
+                .limit-records-box {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .select-record-box {
+                       display: flex;
+                       margin: 0 10px;
+                       background-color: $mobile-box-bgcolor;
+                       width: 75px;
+                       border-radius: 8px;
+                       padding: 4px 10px;
+                       font-weight: 450;
+                       div{
+                           &:first-child{
+                               width: 80%;
+                               text-align: left;
+                           }
+                           svg{
+                               margin-top: -5px;
+                           }
+                       }
+                    }
+                }
+                
+                .change-page-box{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .btn{
+                        font-weight: 600;
+                        color: $nonactive-btn-color;
+                        &.active{
+                            color: $color-info;
+                        }
+                    }
+                    .btn-text{
+                        font-size: 1em;
+                        &:first-child{
+                            padding-right: 25px;
+                            margin-right: 5px;
+                        }
+                        &:last-child{
+                            padding-left: 25px;
+                            margin-left: 5px;
+                        }
+                    }
+                    .btn-svg{
+                        padding: 0;
+                        margin: 0;
+                        svg{
+                            stroke-width: 4px;
+                        }
+                    }
+                    .page{
+                        padding: 0;
+                        margin: 0;
+                        font-size: .7em;
+                        line-height: .7em;
+                        margin: 0 30px;
+                    }
+                }
+            }
+        }
     }
 }
