@@ -3,6 +3,9 @@ import { BsFillCaretDownFill } from "react-icons/bs";
 import { HiMenu } from "react-icons/hi";
 import { GrSearch } from "react-icons/gr";
 import { GoPrimitiveDot } from "react-icons/go";
+import {
+  Link
+} from "react-router-dom";
 
 /**
  * Use in layout/transaction
@@ -23,13 +26,13 @@ const Header = (props) => {
     {
       active: false,
       name: "Home",
-      route: "#",
+      route: "/home",
       options: [],
     },
     {
       active: true,
       name: "Transactions",
-      route: "#",
+      route: "/",
       options: [],
     },
     {
@@ -193,11 +196,12 @@ const Header = (props) => {
                   className={item.active ? "item active" : "item"}
                   onClick={
                     item.name.toLowerCase().match("account")
-                      ? onClickAccountButton
-                      : onClickTokenButton
+                      ? onClickAccountButton :
+                    item.name.toLowerCase().match("token") 
+                      ?  onClickTokenButton : null
                   }
                 >
-                  <a href={item.route}>{item.name}</a>
+                  <Link to={item.route}>{item.name}</Link>
                   {item.options.length === 0 ? (
                     ""
                   ) : (
@@ -248,7 +252,7 @@ const Header = (props) => {
         </div>
 
         {/* --1.3-SEARCHING_AREA -------------------------------- */}
-        <div className="searching__area col-12 col-lg-3 p-0 m-0">
+        <div className="searching__area col-12 col-lg-3">
           {/* --1.3.1-NAVIGATION_LIST ------------ */}
           <div className="inputbox ">
             <input

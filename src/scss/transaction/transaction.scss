@@ -1,18 +1,7 @@
 @import './components/header';
 @import './components/footer';
-$bgcolor-info : #e9f5fe;
-$color-info: #1273ea;
-
-/* Common  */
-.background-info {
-    background-color: $bgcolor-info !important;
-    color: $color-info !important;
-}
-
-.btn {
-    outline: none !important;
-}
-
+$subtitle-text-color: #57627b;
+// COMMON
 .custom-container {
     margin: 0;
     padding: 0 1em;
@@ -27,7 +16,42 @@ $color-info: #1273ea;
         max-width: 1280px;
         margin: 0 auto;
     }
-
 }
 
-/* Specific */
+// SPECIFIC
+.transaction{
+    padding: 0;
+    margin: 20px 0 50px 0;
+    // ------ 01 TITLE ----------------
+    .transaction__title_panel{
+        // ---- 01.1 TITLE BOX ------
+        .title-box{
+            .title{
+                font-weight: 600;
+                font-size: 1.5em;
+                padding: 0;
+                margin: 0;
+            }
+            .subtitle{
+                padding: 0;
+                margin-top: 5px;
+                font-size: .97em;
+                color: $subtitle-text-color;
+            }
+        }
+        // ---- 01.2 PAGINATION BOX ------
+        .pagination-box{
+
+            .sub-box{
+                &.desktop-box{
+                    
+                }
+                &.mobile-box{
+                    .modal-box{
+
+                    }
+                }
+            }
+        }    
+    }
+}

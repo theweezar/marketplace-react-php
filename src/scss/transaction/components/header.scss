@@ -6,6 +6,10 @@ $bgcolor-info: #e9f5fe;
 $color-info: #1273ea;
 
 // COMMON
+.background-info {
+  background-color: $bgcolor-info !important;
+  color: $color-info !important;
+}
 .select_box {
   position: absolute;
   background-color: #fff;
@@ -39,6 +43,7 @@ $color-info: #1273ea;
       }
     }
   }
+  
     // TYPE 2 : BRANDING
   &.navigation__list_select_box {
     min-width: 240px;
@@ -196,10 +201,14 @@ header {
     // -------------------------SEARCHING ------------------------
     .searching__area {
     //  #01 : INPUTBOX  
+        @include media-breakpoint-up(lg) {
+          padding: 0;
+          margin: 0;
+        }
       .inputbox {
         position: relative;
-        margin: 1em 0.3em;
-
+        margin: 1em 0.3em 1em 0em;
+        width: auto;
         @include media-breakpoint-up(lg) {
           width: 103%;
         }
