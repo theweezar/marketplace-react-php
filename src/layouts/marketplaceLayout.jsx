@@ -1,12 +1,25 @@
 import { MarketplaceHeader } from "./MarketplaceHeader";
 import { RightSideBar } from "./RightSideBar";
-import '../scss/layout.scss';
+
+function BlurBackground() {
+    return (
+        <div className="blur-bg d-none"></div>
+    );
+}
+
+function Veil() {
+    return (
+        <div className="veil d-none"></div>
+    );
+}
 
 export function MarketplaceLayout({ children }) {
     return (
-        <div>
-            <MarketplaceHeader/>
+        <div className="layout-wrapper position-relative">
+            <BlurBackground/>
             <RightSideBar/>
+            <Veil/>
+            <MarketplaceHeader/>
             {children}
         </div>
     );

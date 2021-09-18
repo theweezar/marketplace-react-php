@@ -6,10 +6,10 @@ import { CgMenuGridR } from 'react-icons/cg'
 import { FaList } from 'react-icons/fa';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../scss/search.scss';
+import { ImArrowLeft2, ImArrowRight2 } from 'react-icons/im';
 import axieFullTransparent1 from '../static/images/axie-full-transparent_1.png';
-import axieFullTransparent2 from '../static/images/axie-full-transparent_2.png';
-import axieFullTransparent3 from '../static/images/axie-full-transparent_3.png';
+// import axieFullTransparent2 from '../static/images/axie-full-transparent_2.png';
+// import axieFullTransparent3 from '../static/images/axie-full-transparent_3.png';
 
 
 export function SearchResult() {
@@ -28,7 +28,7 @@ export function SearchResult() {
         { id: Math.random().toString(36).substr(2, 9), value: 'Not for sale'}
     ];
 
-    const productTiles = Array(100).fill(
+    const productTiles = Array(20).fill(
         { id: Math.random().toString(36).substr(2, 9), breedCount: Math.floor(Math.random()*(152422 + 1 - 100000) + 100000)}
     );
     
@@ -36,8 +36,10 @@ export function SearchResult() {
     const [selectedSale, setSelectedSale] = useState(0);
     const [display, setDisplay] = useState(1);
 
+    const itemCount = Math.floor(Math.random()*(152422 + 1 - 100000) + 100000);
+
     return (
-        <div className="search-result-wrapper">
+        <div className="search-result-wrapper col-12 col-lg-9">
             <div className="sort-section">
                 <div className="d-flex justify-between">
                     <div className="sort-price">
@@ -73,7 +75,7 @@ export function SearchResult() {
             <div className="search-result-content">
                 <div className="d-flex justify-between">
                     <div className="product-amount">
-                        <span>{Math.floor(Math.random()*(152422 + 1 - 100000) + 100000)} Items</span>
+                        <span>{itemCount} Items</span>
                     </div>
                     <div className="sort-sale">
                         <Button3E className="btn-sale w-100">
@@ -96,14 +98,14 @@ export function SearchResult() {
                         </ListViewColumnAbsolute>
                     </div>
                 </div>
-                {/* Product tiles list below here */}
+                {/* Product tiles list START here */}
                 <div className="row product-tile-list">
-                    {productTiles.map((producTile => {
+                    {productTiles.map(((producTile, index) => {
                         return (
-                            <div className="col-6 product-tile" key={producTile.id}>
+                            <div className="col-6 col-lg-3 product-tile" key={index}>
                                 <Link to={"/" + producTile.id}>
-                                    <div class="card">
-                                        <div class="card-body">
+                                    <div className="card">
+                                        <div className="card-body">
                                             <div className="product-id d-inline-block">
                                                 #{producTile.id}
                                             </div>
@@ -125,6 +127,26 @@ export function SearchResult() {
                             </div>
                         );
                     }))}
+                </div>
+                {/* Product tiles list END here */}
+                <div className="pagination d-flex align-items-center justify-evenly">
+                    <div>
+                        <Button className="d-flex align-items-center btn-paging">
+                            <ImArrowLeft2/>
+                        </Button>
+                    </div>
+                    <div className="d-flex align-items-center pagination-track">
+                        <span>Page</span>
+                        <form className="mx-1" action="/">
+                            <input type="text" name="page-number" id="page-number"/>
+                        </form>
+                        <span>of {itemCount}</span>
+                    </div>
+                    <div>
+                        <Button className="d-flex align-items-center btn-paging">
+                            <ImArrowRight2/>
+                        </Button>
+                    </div>
                 </div>
             </div>
         </div>

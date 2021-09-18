@@ -1,0 +1,30 @@
+.right-side-bar {
+    position: absolute;
+    width: 80%;
+    height: 100vh;
+    background-color: $color-gray-5;
+    z-index: 1010;
+    right: 0;
+
+    .listview-container {
+        margin-top: 40px;
+    }
+
+    ul {
+        li {
+            a {
+                padding: 12px 24px 12px 50px;
+                display: block;
+                font-size: 16px;
+
+                .route-name {
+                    margin-left: 16px;
+                }
+            }
+        }
+    }
+
+    .btn-login {
+        margin-top: 32px;
+    }
+}

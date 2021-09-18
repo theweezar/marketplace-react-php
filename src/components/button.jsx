@@ -12,7 +12,7 @@ export function Button3E({...props}) {
     return (
         <button {...props}>
             <div className={'d-flex ' + (children[2] ? 'justify-between' : 'justify-content-center')}>
-                <div className='d-flex'>
+                <div className='d-flex align-items-center'>
                     {children[0]}
                     <div className={'btn-value ' + (children[0] ? 'ps-2 d-flex justify-content-center' : '')}>
                         {children[1] || 'Button'}
