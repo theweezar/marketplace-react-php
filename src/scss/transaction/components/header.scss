@@ -17,6 +17,7 @@ $color-info: #1273ea;
   border-radius: 8px;
   transition: 0.3s;
   transform: translateY(0);
+  z-index: 1;
     // TYPE 1 : BRANDING
   &.branding__badge_select_box {
     transform: translateY(100%);
@@ -84,6 +85,7 @@ $color-info: #1273ea;
 // SPECIFIC
 header {
   position: relative;
+  height: auto;
   nav {
       height: 100%;
     // -------------------------BRANDING ------------------------

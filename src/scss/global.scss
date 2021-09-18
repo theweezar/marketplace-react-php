@@ -21,3 +21,8 @@
 --breakpoint-uhd: 3840px;
 --breakpoint-s4k: 4096px;
 */
+#root{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
