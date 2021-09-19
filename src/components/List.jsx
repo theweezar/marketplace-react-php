@@ -23,7 +23,7 @@ export function ListViewColumnAbsolute({...props}) {
     props.className = 'position-relative listview-container ' + (props.className || '');
     return (
         <div {...props}>
-            <div className='position-absolute w-100'>
+            <div className='position-absolute w-100 z-1'>
                 <ul className='nav flex-column'>
                     {props.children}
                 </ul>

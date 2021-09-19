@@ -3,8 +3,9 @@
     width: 80%;
     height: 100vh;
     background-color: $color-gray-5;
-    z-index: 1010;
-    right: 0;
+    z-index: 1040;
+    right: -100%;
+    transition: 0.25s;
 
     .listview-container {
         margin-top: 40px;
@@ -26,5 +27,10 @@
 
     .btn-login {
         margin-top: 32px;
+    }
+
+    &.expand {
+        right: 0;
+        transition: 0.25s;
     }
 }

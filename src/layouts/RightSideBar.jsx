@@ -5,10 +5,13 @@ import { AiOutlineDashboard, AiTwotoneShop } from 'react-icons/ai';
 import { FiHelpCircle } from 'react-icons/fi';
 import { FaProductHunt } from 'react-icons/fa';
 import { BiLogIn } from 'react-icons/bi';
+import { useSelector } from "react-redux";
 
-export function RightSideBar() {
+export function RightSideBar({...props}) {
+    const isSideBarOpen = useSelector(state => state.isSideBarOpen);
+
     return (
-        <div className="right-side-bar d-none">
+        <div className={"right-side-bar " + (isSideBarOpen ? "expand":"")}>
             <ListViewColumn>
                 <Item>
                     <Link to="/" className="d-flex align-items-center">

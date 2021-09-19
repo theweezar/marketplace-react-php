@@ -1,4 +1,4 @@
-import { FaCheck, FaCircle } from 'react-icons/fa'; 
+import { FaCheck, FaCircle } from 'react-icons/fa';
 import { useState } from 'react';
 
 export function CheckBox({...props}) {

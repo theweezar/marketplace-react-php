@@ -8,8 +8,6 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ImArrowLeft2, ImArrowRight2 } from 'react-icons/im';
 import axieFullTransparent1 from '../static/images/axie-full-transparent_1.png';
-// import axieFullTransparent2 from '../static/images/axie-full-transparent_2.png';
-// import axieFullTransparent3 from '../static/images/axie-full-transparent_3.png';
 
 function SortPrice() {
     const optionsSortPrice = [
@@ -20,15 +18,18 @@ function SortPrice() {
         { id: Math.random().toString(36).substr(2, 9), value: 'Highest Price'},
         { id: Math.random().toString(36).substr(2, 9), value: 'Latest'}
     ];
+    
     const [selectedPrice, setSelectedPrice] = useState(0);
+    const [expand, setExpand] = useState(false)
+
     return (
         <div className="sort-price">
-            <Button3E className="btn-sort-price w-100">
+            <Button3E className="btn-sort-price w-100" onClick={() => setExpand(!expand)}>
                 <></>
                 <span>{optionsSortPrice[selectedPrice].value}</span>
                 <FaAngleDown />
             </Button3E>
-            <ListViewColumnAbsolute className="list-sort-price d-none">
+            <ListViewColumnAbsolute className={"list-sort-price " + (!expand ? "d-none":"")}>
                 {optionsSortPrice.map((option, index) => {
                     return (
                         <Item key={option.id}>
@@ -83,7 +84,7 @@ function SortSale() {
                                 <span>{option.value}</span>
                                 <></>
                             </Button3E>
-                        </Item>     
+                        </Item>
                     );
                 })}
             </ListViewColumnAbsolute>

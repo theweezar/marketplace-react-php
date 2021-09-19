@@ -11425,6 +11425,50 @@ textarea.form-control-lg {
   justify-content: space-evenly;
 }
 
+.z-negative {
+  z-index: -1;
+}
+
+.z-1 {
+  z-index: 1;
+}
+
+.z-1000 {
+  z-index: 1000;
+}
+
+.z-1010 {
+  z-index: 1000;
+}
+
+.z-1020 {
+  z-index: 1020;
+}
+
+.z-1030 {
+  z-index: 1030;
+}
+
+.z-1040 {
+  z-index: 1040;
+}
+
+.z-1050 {
+  z-index: 1050;
+}
+
+.z-1060 {
+  z-index: 1060;
+}
+
+.z-1070 {
+  z-index: 1070;
+}
+
+.z-1080 {
+  z-index: 1080;
+}
+
 a {
   text-decoration: none;
   color: white;
@@ -11620,14 +11664,14 @@ input:focus {
   width: 100%;
   height: 100vh;
   background-color: rgba(36, 39, 53, 0.5);
-  z-index: 1000;
+  z-index: 1030;
 }
 
 .veil {
   position: absolute;
   width: 100%;
   height: 100vh;
-  z-index: 2000;
+  z-index: 1050;
 }
 
 .right-side-bar {
@@ -11635,8 +11679,9 @@ input:focus {
   width: 80%;
   height: 100vh;
   background-color: #242735;
-  z-index: 1010;
-  right: 0;
+  z-index: 1040;
+  right: -100%;
+  transition: 0.25s;
 }
 .right-side-bar .listview-container {
   margin-top: 40px;
@@ -11651,6 +11696,10 @@ input:focus {
 }
 .right-side-bar .btn-login {
   margin-top: 32px;
+}
+.right-side-bar.expand {
+  right: 0;
+  transition: 0.25s;
 }
 
 .main-content-wrapper {

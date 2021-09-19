@@ -14,8 +14,9 @@ import tabLand from '../static/images/tab-land.png';
 import tabItem from '../static/images/tab-item.png';
 import tabBundle from '../static/images/tab-bundle.png';
 import { useState } from 'react';
+import { useSelector, useDispatch } from "react-redux";
 
-export function MarketplaceHeader() {
+export function MarketplaceHeader({...props}) {
     const options = [
         { id: Math.random().toString(36).substr(2, 9), value: 'Axies', startIcon: <IconImage24 src={tabAxie}/> },
         { id: Math.random().toString(36).substr(2, 9), value: 'Lands', startIcon: <IconImage24 src={tabLand}/> },
@@ -24,6 +25,14 @@ export function MarketplaceHeader() {
     ];
 
     const [selected, setSelected] = useState(0);
+
+    const isSideBarOpen = useSelector(state => state.isSideBarOpen);
+    const dispatch = useDispatch();
+    const toggle = () => {
+        return {
+            type: !isSideBarOpen
+        };
+    }
 
     return (
         <div className="header-wrapper">
@@ -57,7 +66,7 @@ export function MarketplaceHeader() {
                     </Button3E>
                 </Link>
                 <div className="hambuger-menu ml-auto d-flex align-items-center d-md-none">
-                    <GiHamburgerMenu />
+                    <GiHamburgerMenu onClick={() => dispatch(toggle())} />
                 </div>
             </div>
             <div className="navigator-cat d-flex justify-between">

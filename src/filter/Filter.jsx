@@ -2,7 +2,28 @@ import { Button } from "../components/Button";
 import { ListViewColumn, Item } from "../components/List";
 import { CheckBox, SliderTrack } from "../components/Input";
 import { GiChaingun } from "react-icons/gi";
-import { randomColorHex, randomString } from "../script/randomHelpers";
+import { randomColorHex, randomString } from "../scripts/randomHelpers";
+import { useState } from "react";
+
+function FilterTab({...props}) {
+    props.className = 'd-flex ' + (props.className || '');
+
+    const [filterTab, setFilterTab] = useState(1);
+    
+    return (
+        <div {...props}>
+            <Button className={"w-100 " + (filterTab === 1 ? "active":"")} onClick={() => setFilterTab(1)}>
+                General
+            </Button>
+            <Button className={"w-100 " + (filterTab === 2 ? "active":"")} onClick={() => setFilterTab(2)}>
+                Parts
+            </Button>
+            <Button className={"w-100 " + (filterTab === 3 ? "active":"")} onClick={() => setFilterTab(3)}>
+                Stat
+            </Button>
+        </div>
+    );
+}
 
 export function Filter() {
 
@@ -21,6 +42,8 @@ export function Filter() {
         });
     }
 
+    
+
     return (
         <div className="filter-wrapper col-12 text-white d-none d-md-block">
             <div className="d-flex justify-between">
@@ -33,17 +56,7 @@ export function Filter() {
                     </Button>
                 </div>
             </div>
-            <div className="d-flex mt-1 mt-md-3 filter-type">
-                <Button className="w-100 active">
-                    General
-                </Button>
-                <Button className="w-100">
-                    Parts
-                </Button>
-                <Button className="w-100">
-                    Stat
-                </Button>
-            </div>
+            <FilterTab className="mt-1 mt-md-3 filter-type"/>
             <div className="filter-component filter-class">
                 <div className="title">
                     class

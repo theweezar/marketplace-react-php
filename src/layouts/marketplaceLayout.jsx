@@ -1,9 +1,17 @@
 import { MarketplaceHeader } from "./MarketplaceHeader";
 import { RightSideBar } from "./RightSideBar";
+import { useSelector, useDispatch } from "react-redux";
 
-function BlurBackground() {
+function BlurBackground({...props}) {
+    const isSideBarOpen = useSelector(state => state.isSideBarOpen);
+    const dispatch = useDispatch();
+    const toggle = () => {
+        return {
+            type: !isSideBarOpen
+        };
+    }
     return (
-        <div className="blur-bg d-none"></div>
+        <div className={"blur-bg " + (isSideBarOpen ? "":"d-none")} onClick={() => dispatch(toggle())}></div>
     );
 }
 
@@ -16,10 +24,10 @@ function Veil() {
 export function MarketplaceLayout({ children }) {
     return (
         <div className="layout-wrapper position-relative">
-            <BlurBackground/>
-            <RightSideBar/>
+            <BlurBackground />
+            <RightSideBar />
             <Veil/>
-            <MarketplaceHeader/>
+            <MarketplaceHeader />
             {children}
         </div>
     );
