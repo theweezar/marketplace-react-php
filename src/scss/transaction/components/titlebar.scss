@@ -1,0 +1,315 @@
+@import '../variables.scss';
+
+// ==================================================
+// For Component Transaction/TitleBar
+// ==================================================
+.transaction__title_panel {
+    @include media-breakpoint-up(lg) {
+        display: flex;
+        align-items: center;
+    }
+
+    // ---- 01.1 TITLE BOX ------ FOR DESKTOP AND MOBILE 
+    .title-box {
+        @include media-breakpoint-up(lg) {
+            display: flex;
+            align-items: center;
+        }
+
+        .title {
+            font-weight: 600;
+            font-size: 1.3em;
+            padding: 0;
+            margin: 0;
+
+            @include media-breakpoint-up(lg) {
+                margin-right: 8px;
+            }
+        }
+
+        .subtitle {
+            padding: 0;
+            margin-top: 5px;
+            font-size: .97em;
+            color: $subtitle-text-color;
+        }
+    }
+
+    // ---- 01.2 PAGINATION BOX ------
+    .pagination-box {
+        cursor: pointer;
+        position: relative;
+        margin-top: 15px;
+        max-width: 100%;
+        box-sizing: border-box;
+
+        @include media-breakpoint-up(lg) {
+            margin-top: 0px;
+        }
+
+        &:hover,
+        &.active {
+            .sub-box.mobile-box {
+                padding: 7px 11px;
+                border: 1px solid $color-info;
+                background-color: #e4f3ff;
+                box-sizing: border-box;
+            }
+        }
+
+        .sub-box {
+            padding: 0;
+            margin: 0;
+
+            &.desktop-box {
+                align-items: center;
+                justify-content: flex-end;
+                padding: 0;
+                margin: 0;
+
+                .limit-records-box {
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    @include media-breakpoint-up(lg) {
+                        margin-right: 50px;
+                    }
+
+                    .select-record-box {
+                        display: flex;
+                        margin: 0 15px;
+                        background-color: $mobile-box-bgcolor;
+                        width: 75px;
+                        border-radius: 8px;
+                        padding: 4px 10px;
+                        font-weight: 450;
+
+                        div {
+                            &:first-child {
+                                width: 80%;
+                                text-align: left;
+                            }
+
+                            svg {
+                                margin-top: -5px;
+                            }
+                        }
+                    }
+                }
+
+                .change-page-box {
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .btn {
+                        font-weight: 600;
+                        color: $nonactive-btn-color;
+
+                        &.active {
+                            color: $color-info;
+                        }
+                    }
+
+                    .btn-text {
+
+                        &:first-child {
+                            padding-right: 25px;
+                            margin-right: 8px;
+                        }
+
+                        &:last-child {
+                            padding-left: 25px;
+                            margin-left: 8px;
+                        }
+                    }
+
+                    .btn-svg {
+                        padding: 5px;
+                        margin: 0;
+
+                        svg {
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+
+                    .page {
+                        padding: 0;
+                        margin: 0;
+                        font-size: .7em;
+                        line-height: .7em;
+                        margin: 0 20px;
+                        color: $subtitle-text-color;
+
+                        @include media-breakpoint-up(lg) {
+                            font-size: 1em;
+                            line-height: 1em;
+                        }
+
+                        span {
+                            margin: 0 2.5px;
+                        }
+                    }
+                }
+            }
+
+            &.mobile-box {
+                border-radius: 8px;
+                display: flex;
+                padding: 8px 12px;
+                background-color: $mobile-box-bgcolor;
+                box-sizing: border-box;
+
+                &>div {
+                    width: 50%;
+                    padding: 0;
+                    margin: 0;
+                    font-size: .95em;
+                }
+
+                .info-box {
+                    &>div {
+                        padding: 0;
+                        margin: 0;
+                    }
+
+                    .label-page {
+                        .bold {
+                            &:first-child {
+                                margin-left: 5px;
+                            }
+                        }
+                    }
+
+                }
+
+                .btn-box {
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+
+                    .pagination-btn {
+                        padding: 0;
+                        margin: 0;
+
+                        svg {
+                            width: 1.6em;
+                            height: 1.6em;
+                        }
+                    }
+                }
+            }
+        }
+
+        .modal-box {
+            font-size: .95em;
+            position: absolute;
+            background: white;
+            transform: translateY(10%);
+            width: 100%;
+            max-width: 315px;
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding: 15px 0 10px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 0px 10px $bgcolor-info, 0px 0px 10px rgba(0, 0, 0, 0.3);
+
+            .limit-records-box {
+                padding: 0;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .select-record-box {
+                    display: flex;
+                    margin: 0 15px;
+                    background-color: $mobile-box-bgcolor;
+                    width: 75px;
+                    border-radius: 8px;
+                    padding: 4px 10px;
+                    font-weight: 450;
+
+                    div {
+                        &:first-child {
+                            width: 80%;
+                            text-align: left;
+                        }
+
+                        svg {
+                            margin-top: -5px;
+                        }
+                    }
+                }
+            }
+
+            .change-page-box {
+                padding: 0;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .btn {
+                    font-weight: 600;
+                    color: $nonactive-btn-color;
+
+                    &.active {
+                        color: $color-info;
+                    }
+                }
+
+                .btn-text {
+
+                    &:first-child {
+                        padding-right: 25px;
+                        margin-right: 8px;
+                    }
+
+                    &:last-child {
+                        padding-left: 25px;
+                        margin-left: 8px;
+                    }
+                }
+
+                .btn-svg {
+                    padding: 5px;
+                    margin: 0;
+
+                    svg {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+
+                .page {
+                    padding: 0;
+                    margin: 0;
+                    font-size: .7em;
+                    line-height: .7em;
+                    margin: 0 20px;
+                    color: $subtitle-text-color;
+
+                    span {
+                        margin: 0 2.5px;
+                    }
+                }
+            }
+        }
+    }
+}

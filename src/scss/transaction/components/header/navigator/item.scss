@@ -1,0 +1,46 @@
+@import '../../../variables.scss';
+
+// ==================================================
+// For Component Header/Navigator/NavigatorItem
+// ==================================================
+.item {
+    position: relative;
+    display: inline-block;
+    margin-left: 0px;
+    margin-right: 18px;
+    padding: 5px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+
+    &.active,
+    &:hover {
+      background-color: $bgcolor-info;
+      font-weight: 600;
+      text-decoration: none;
+
+      a {
+        color: $color-info;
+      }
+
+      .btn > svg {
+        color: $color-info;
+      }
+    }
+
+    a {
+      color: #000;
+      font-size: .94em;
+      line-height: .94em;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .btn {
+      margin-left: 10px;
+
+      svg {
+        width: 0.6em;
+        line-height: 0.6em;
+      }
+    }
+  }

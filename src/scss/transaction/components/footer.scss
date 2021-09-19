@@ -1,12 +1,9 @@
-$bgfooter-color : #f5f8fc;
-$sponsor-color:  #57627b;
-$line-vertical-color: #c5cee0;
-$sponsor-logo-color: #4c98ff;
-$sponsor-name-color: #1d273d;
-$border-color: #dee6f1;
-$hover-color: #1273ea;
+@import '../variables';
+@import '../common';
 
-// SPECIFIC
+// ==================================================
+// For Component TransactionLayout/Footer
+// ==================================================
 footer {
     position: relative;
     bottom: 0;
@@ -37,134 +34,12 @@ footer {
         }
         
         // ---------- 01.1 FOOTER SPONSOR AREA ------------------
-        .footer__sponsor_area {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            margin-bottom: 30px;
-
-            @include media-breakpoint-up( lg ){
-                margin-bottom: 0px;
-                padding-left: 0;
-                flex-direction: row;
-                justify-content: flex-start;
-                align-items: center;
-                    .line-vertical{
-                        margin: 0 16px;
-                        height: 1em;
-                        width: 0px;
-                        border: 1px solid $line-vertical-color; 
-                    }
-            }
-            .logobox {
-                height: 100%;
-                cursor: pointer;
-                &:hover{
-                    svg{
-                        path{
-                            &#sponsor_logo{
-                                fill: #4c98ff;
-                            }
-                            &#sponsor_name{
-                                fill: #1d273d;
-                            }
-                        }
-                    }   
-                }
-                svg{
-                    height: 40px;
-                    color: $sponsor-color;
-                }
-            }
-            .copywriting{
-                font-size: .9em;
-                font-weight: 600;
-                color: $sponsor-color;
-            }
-        }
+        @import '../components/footer/sponsor';
 
         // ---------- 01.2 FOOTER VISIT AREA ------------------
-        .footer__visit_area {
-            padding-bottom: 20px;
-            @include media-breakpoint-up( lg ){
-                padding-bottom: 0;
-            }
-
-            .list{
-                display: flex;
-                
-                .sublist{
-                    width: 50%;
-                    display: flex;
-                    flex-direction: column;
-                    @include media-breakpoint-up( lg ){
-                            width: auto;
-                            flex-direction: row;
-                            align-items: center;
-                    }
-                .item{ 
-                    &.head{
-                        padding-bottom: 10px;
-                    }
-                    &:hover{
-                        a{
-                            color: $hover-color;
-                        }
-                    }
-                    a{
-                        color: #000;
-                        font-weight: 600;
-                        font-size: .95em;
-                        text-decoration: none;
-                    }
-                    @include media-breakpoint-up( lg ){
-                        &.head{
-                            padding-bottom: 0px;
-                        }
-                        margin: 0 12px;
-                    }
-                    }
-                }
-            }
-        }
-
+        @import '../components/footer/visit';
+        
         // ---------- 01.3 FOOTER SOCIAL AREA ------------------
-        .footer__social_area {
-            border-top: 1px solid $border-color;
-            padding: 0;
-            margin:0;
-            @include media-breakpoint-up( lg ){
-                border-top: none;  
-            }
-            .list{
-                display: flex;
-                align-items: center;
-                padding: 0;
-                padding-top: 20px;
-                margin: 0;
-                @include media-breakpoint-up( lg ){
-                    padding-top: 0;  
-                }
-                .social{
-                    margin: 0 12px;
-                    &:first-child{
-                        margin-left: 0;   
-                    }
-                    &:last-child{
-                        margin-right: 0;
-                    }
-                    &:hover{
-                        svg{
-                            fill: $hover-color
-                        }
-                    }
-                    svg{
-                        padding: 0;
-                        fill: $sponsor-color;
-                    } 
-                }
-            }
-        }
-
+        @import '../components/footer/social';
     }
 }

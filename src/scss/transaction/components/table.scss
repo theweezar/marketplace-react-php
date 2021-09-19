@@ -1,0 +1,283 @@
+@import '../variables.scss';
+
+// ==================================================
+// For Component Transaction/Table
+// ==================================================
+.transaction__table__box {
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
+
+    .transaction__table {
+        width: 100%;
+        .table__header {
+            padding: 0;
+            margin: 0;
+            border-radius: 10px;
+            overflow: hidden;
+
+            .header_list {
+                background-color: $mobile-box-bgcolor;
+                box-sizing: border-box;
+                margin: 0;
+
+                .header_item {
+                    text-transform: uppercase;
+                    font-size: .67em;
+                    padding: 10px 0;
+                    font-weight: bold;
+                    color: $list-item-text-color;
+                    margin: 0;
+                    &.icon{
+                        min-width: 40px;
+                        width: auto;
+                    }
+                    &.txhash {
+                        min-width: 140px;
+                        width: 13.07%;
+                    }
+
+                    &.action {
+                        min-width: 120px;
+                        width: 12%;
+                    }
+
+                    &.block {
+                        min-width: 80px;
+                        width: auto;
+                    }
+
+                    &.age {
+                        min-width: 100px;
+                        width: auto;
+                    }
+
+                    &.status {
+                        min-width: 80px;
+                        width: 4.66%;
+                    }
+
+                    &.from {
+                        min-width: 160px;
+                        width: 15%;
+                    }
+
+                    &.direct{
+                        min-width: 80px;
+                        width: auto;
+                    }
+
+                    &.to {
+                        min-width: 200px;
+                        width: 14.71%;
+                    }
+
+                    &.value {
+                        min-width: 80px;
+                        width: auto;
+                    }
+                }
+            }
+        }
+        .table__container{
+            // COMMON
+            a {
+                text-decoration: none;
+            }
+            // SPECIFIC
+            .table_item{
+                &:hover,
+                &.active{
+                background-color: rgb(238, 244, 250);
+                }
+                border-bottom: 1px solid $line-color;
+                .item_content{
+                    padding: 15px 0;
+                    font-weight: 400;
+                    font-size: .95em;
+                    &.icon{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        .icon{
+                            background-color: $mobile-box-bgcolor;
+                            padding: 5px;
+                            border-radius: 8px;
+                            svg {
+                                margin-top: -5px;
+                                fill: $subtitle-text-color;
+                            }
+                        }
+                    }
+                    &.txhash{
+                        .link {
+                            a {
+                                font-size: .9em;
+
+                                span {
+                                    margin-right: 5px;
+                                }
+                            }
+                        }
+                    }
+                    // &.action{
+
+                    // }
+                    // &.block{
+                        
+                    // }
+                    &.age{
+                        .time {
+                            color: $time-text-color-desktop;
+                        }
+                    }
+                    &.status{
+                        .custom-badge {
+                            padding: 2.5px 8px;
+                            font-size: .7em;
+                            font-weight: 600;
+                            letter-spacing: .4px;
+                            background-color: $success-color;
+                            color: #fff;
+                            border-radius: 8px;
+                            display: flex;
+                            width: fit-content;
+                            box-sizing: border-box;
+                            align-items: center;
+                        }
+                    }
+                    &.from{
+                        a{
+                            span{
+                                &:first-child{
+                                    margin-right: 2px;
+                                }
+                            }
+                        }
+                    }
+                    &.direct{
+                        svg{
+                            fill: $color-info;
+                        }
+                    }
+                    &.to{
+                        a {
+                            .img-box {
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+                    &.value{
+                        font-weight: 600;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+
+        &.mobile {
+            .item {
+                padding-left: 10px;
+                padding-bottom: 6px;
+                border-bottom: 1px solid $line-color;
+
+                .field {
+                    display: flex;
+                    align-items: center;
+                    font-size: .95em;
+                    font-weight: 400;
+                    margin-bottom: 10px;
+
+                    label {
+                        min-width: 115px;
+                        max-width: 200px;
+                        font-size: .65em;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        color: $list-item-text-color;
+                    }
+
+                    .value {
+                        font-size: 1em;
+                    }
+
+                    a {
+                        text-decoration: none;
+                    }
+
+                    &.id {
+                        .icon {
+                            background-color: $mobile-box-bgcolor;
+                            padding: 5px;
+                            border-radius: 8px;
+                            margin-right: 8px;
+
+                            svg {
+                                margin-top: -5px;
+                                fill: $subtitle-text-color;
+                            }
+                        }
+
+                        .link {
+                            a {
+                                font-size: .98em;
+
+                                span {
+                                    margin-right: 5px;
+                                }
+                            }
+                        }
+
+                        .time {
+                            color: $time-text-color;
+                            font-size: .9em;
+                        }
+                    }
+
+                    &.action {
+                        align-items: flex-end;
+                        padding: 0;
+                    }
+
+                    &.status {
+                        .custom-badge {
+                            padding: 2.5px 8px;
+                            font-size: .7em;
+                            font-weight: 600;
+                            letter-spacing: .4px;
+                            background-color: $success-color;
+                            color: #fff;
+                            border-radius: 8px;
+                        }
+                    }
+
+                    &.from {
+                        span {
+                            &:first-child {
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+
+                    &.to {
+                        .value {
+                            a {
+                                .img-box {
+                                    margin-right: 5px;
+                                }
+                            }
+                        }
+                    }
+
+                    &.value {
+                        .value {
+                            font-weight: 600;
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

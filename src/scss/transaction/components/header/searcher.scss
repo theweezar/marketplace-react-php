@@ -1,0 +1,50 @@
+@import '../../variables.scss';
+
+// ==================================================
+// For Component Header/Searcher 
+// ==================================================
+.searching__area {
+
+    //  #01 : InputBox  
+    @include media-breakpoint-up(lg) {
+        padding: 0;
+        margin: 0;
+    }
+
+    .inputbox {
+        position: relative;
+        margin: 1em 0.3em 1em 0em;
+        width: auto;
+
+        @include media-breakpoint-up(lg) {
+            width: 103%;
+        }
+
+        @include media-breakpoint-up(xl) {
+            width: 103%;
+        }
+
+        input[type="text"] {
+            padding: 0.5em 3em;
+            max-height: 3em;
+            border-radius: 0.5em;
+            font-size: $input-text-size;
+            border-color: $input-text-gray-color;
+            outline: none;
+        }
+
+        svg {
+            top: 50%;
+            left: 0.8em;
+            width: 1.3em;
+            height: 1.3em;
+            position: absolute;
+            transform: translateY(-50%);
+
+            path {
+                stroke: $input-stroke-gray-color !important;
+                stroke-width: 2.5;
+            }
+        }
+    }
+}

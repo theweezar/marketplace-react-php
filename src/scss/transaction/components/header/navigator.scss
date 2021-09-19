@@ -1,0 +1,32 @@
+@import '../../variables.scss';
+
+// ==================================================
+// For Component Header/Navigator
+// ==================================================
+.navigation__area {
+    position: relative;
+    max-width: 700px;
+    
+    //  #01 : MobileMenuBtn  
+    .btn {
+      svg {
+        width: 1.2em;
+        height: 1.2em;
+      }
+    }
+    //   #02 : NavigatorList
+    .list-box {
+      height: 100%;
+      padding: 0;
+      margin:  0;
+      align-items: center;
+      justify-content: center;
+      padding-left: 10px;
+
+      .list {
+          max-height: 40px;
+        @import './navigator/item';
+      }
+    }
+    //   #03 : Common - SelectBrandingBadgeBox
+}
