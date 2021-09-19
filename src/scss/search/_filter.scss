@@ -1,10 +1,11 @@
 .filter-wrapper {
     position: absolute;
 
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up(md) {
         position: inherit;
         order: 1;
         padding: 20px;
+        border-right: 1px solid $color-gray-3;
         
         @include flex(280px);
     }
@@ -17,7 +18,7 @@
         color: $color-primary-4;
         border: none;
 
-        @include media-breakpoint-up(lg) {
+        @include media-breakpoint-up(md) {
             padding: 0;
         }
     }

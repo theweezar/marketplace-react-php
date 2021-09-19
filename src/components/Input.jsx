@@ -8,7 +8,7 @@ export function CheckBox({...props}) {
     
     return (
         <div {...props}>
-            <label htmlFor={props.dataid} className="d-flex align-items-center">
+            <label htmlFor={props.dataid} className="d-flex align-items-center pointer">
                 <input type="checkbox" name="checkbox" id={props.dataid} onChange={() => setChecked(!checked)} />
                 <div className={"checkbox-square me-1 d-flex align-items-center justify-content-center " + (checked ? "active" : "")}>
                     <FaCheck/>

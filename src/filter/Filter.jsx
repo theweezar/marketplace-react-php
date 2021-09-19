@@ -22,7 +22,7 @@ export function Filter() {
     }
 
     return (
-        <div className="filter-wrapper col-12 text-white d-none d-lg-block">
+        <div className="filter-wrapper col-12 text-white d-none d-md-block">
             <div className="d-flex justify-between">
                 <div className="filter-title">
                     Filter (0)
@@ -33,7 +33,7 @@ export function Filter() {
                     </Button>
                 </div>
             </div>
-            <div className="d-flex mt-1 mt-lg-3 filter-type">
+            <div className="d-flex mt-1 mt-md-3 filter-type">
                 <Button className="w-100 active">
                     General
                 </Button>

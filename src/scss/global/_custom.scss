@@ -47,3 +47,11 @@ a {
 html, body {
     color: white;
 }
+
+button,
+input {
+    &:focus {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+}

@@ -106,8 +106,6 @@ export function SearchResult() {
         { id: Math.random().toString(36).substr(2, 9), breedCount: Math.floor(Math.random()*(152422 + 1 - 100000) + 100000)}
     );
 
-    
-
     return (
         <div className="search-result-wrapper col-12">
             <div className="sort-section-mo">
@@ -166,23 +164,25 @@ export function SearchResult() {
                     </div>
                 </div>
                 {/* Product tiles list END here */}
-                <div className="pagination d-flex align-items-center justify-evenly">
-                    <div>
-                        <Button className="d-flex align-items-center btn-paging">
-                            <ImArrowLeft2/>
-                        </Button>
-                    </div>
-                    <div className="d-flex align-items-center pagination-track">
-                        <span>Page</span>
-                        <form className="mx-1" action="/">
-                            <input type="text" name="page-number" id="page-number"/>
-                        </form>
-                        <span>of {1923}</span>
-                    </div>
-                    <div>
-                        <Button className="d-flex align-items-center btn-paging">
-                            <ImArrowRight2/>
-                        </Button>
+                <div className="pagination d-flex justify-content-center">
+                    <div className="pagination-wrapper d-flex align-items-center justify-evenly">
+                        <div>
+                            <Button className="d-flex align-items-center btn-paging">
+                                <ImArrowLeft2/>
+                            </Button>
+                        </div>
+                        <div className="d-flex align-items-center pagination-track">
+                            <span>Page</span>
+                            <form className="mx-1" action="/">
+                                <input type="text" name="page-number" id="page-number"/>
+                            </form>
+                            <span>of {1923}</span>
+                        </div>
+                        <div>
+                            <Button className="d-flex align-items-center btn-paging">
+                                <ImArrowRight2/>
+                            </Button>
+                        </div>
                     </div>
                 </div>
             </div>

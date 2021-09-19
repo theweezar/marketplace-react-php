@@ -9,11 +9,14 @@
     overflow-y: scroll;
     padding: 12px 8px;
 
-    @include custom-scroll-bar();
+    @include media-breakpoint-up(md) {
+        @include custom-scroll-bar();
+    }
+    
 }
 
 .search-result-wrapper {
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up(md) {
         order: 2;
         padding: 24px 32px;
 
@@ -37,7 +40,7 @@
     }
 
     .display-tile {
-        @include media-breakpoint-up(lg) {
+        @include media-breakpoint-up(md) {
             margin-left: 8px;
         }
 
@@ -53,7 +56,7 @@
                 border-radius: 0 .25rem .25rem 0;
             }
 
-            @include media-breakpoint-up(lg) {
+            @include media-breakpoint-up(md) {
                 width: 39px;
                 height: 39px;
             }
@@ -67,7 +70,7 @@
             color: white;
             font-size: 20px;
 
-            @include media-breakpoint-up(lg) {
+            @include media-breakpoint-up(md) {
                 font-size: 28px;
             }
         }
@@ -75,7 +78,7 @@
         .sort-sale {
             width: 160px;
 
-            @include media-breakpoint-up(lg) {
+            @include media-breakpoint-up(md) {
                 margin-left: 8px;
             }
 
@@ -96,7 +99,7 @@
         .product-tile-container {
             margin-top: 24px;
 
-            @include media-breakpoint-up(lg) {
+            @include media-breakpoint-up(md) {
                 margin-right: 0;
                 margin-left: 0;
             }
@@ -105,6 +108,10 @@
                 padding: 0 8px;
 
                 @include media-breakpoint-up(lg) {
+                    max-width: 90%;
+                }
+
+                @include media-breakpoint-up(xl) {
                     max-width: 85%;
                 }
 
@@ -123,10 +130,17 @@
                 .product-tile {
                     margin: 4px 0px;
     
-                    @include media-breakpoint-up(lg) {
+                    // Tablet
+                    @include media-breakpoint-up(md) {
                         margin: 8px 0px;
                         padding: 0 8px;
-    
+                    }
+                    // Table Ipad Pro
+                    @include media-breakpoint-up(lg) {
+                        @include flex(33.33%);
+                    }
+                    // Desktop
+                    @include media-breakpoint-up(xl) {
                         @include flex(24%);
                     }
 
@@ -170,7 +184,7 @@
                                 text-align: center;
                                 padding-bottom: 16px;
 
-                                @include media-breakpoint-up(lg) {
+                                @include media-breakpoint-up(md) {
                                     padding-bottom: 0;
                                 }
                             }
@@ -185,22 +199,34 @@
         margin-top: 16px;
         margin-bottom: 32px;
 
-        .pagination-track {
-            input {
-                padding: 8px 12px;
-                background-color: $color-gray-6;
-                border: 1px solid $color-gray-3;
-                color: white;
-                width: 50px;
-                font-size: 12px;
+        .pagination-wrapper {
+            width: 100%;
+
+            @include media-breakpoint-up(lg) {
+                width: 70%;
+            }
+
+            @include media-breakpoint-up(xl) {
+                width: 50%;
+            }
+
+            .pagination-track {
+                input {
+                    padding: 8px 12px;
+                    background-color: $color-gray-6;
+                    border: 1px solid $color-gray-3;
+                    color: white;
+                    width: 50px;
+                    font-size: 12px;
+                    border-radius: 4px;
+                }
+            }
+    
+            .btn-paging {
+                padding: 8px 20px;
+                font-size: 20px;
                 border-radius: 4px;
             }
-        }
-
-        .btn-paging {
-            padding: 8px 20px;
-            font-size: 20px;
-            border-radius: 4px;
         }
     }
 }

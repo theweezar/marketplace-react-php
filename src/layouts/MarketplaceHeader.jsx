@@ -38,30 +38,30 @@ export function MarketplaceHeader() {
                         />
                     </Link>
                 </div>
-                <div className="d-none d-lg-flex align-items-center btn-product-menu">
+                <div className="d-none d-md-flex align-items-center btn-product-menu">
                     <CgMenuGridR/>
                     <AiFillCaretDown/>
                 </div>
-                <Link to="/" className="d-none d-lg-flex align-items-center btn-tab btn-dashboard">
+                <Link to="/" className="d-none d-md-flex align-items-center btn-tab btn-dashboard">
                     <span className="d-flex align-items-center"><RiDashboardFill/></span>
                     <span className="route-name ms-1">Dashboard</span>
                 </Link>
-                <Link to="/" className="d-none d-lg-flex align-items-center btn-tab btn-marketplace active">
+                <Link to="/" className="d-none d-md-flex align-items-center btn-tab btn-marketplace active">
                     <span className="d-flex align-items-center"><AiTwotoneShop/></span>
                     <span className="route-name ms-1">Marketplace</span>
                 </Link>
-                <Link to="/asd" className="d-none d-lg-block ml-auto">
+                <Link to="/asd" className="d-none d-md-block ml-auto">
                     <Button3E className="btn-login">
                         <BiLogIn />
                         <span>Login</span>
                     </Button3E>
                 </Link>
-                <div className="hambuger-menu ml-auto d-flex align-items-center d-lg-none">
+                <div className="hambuger-menu ml-auto d-flex align-items-center d-md-none">
                     <GiHamburgerMenu />
                 </div>
             </div>
             <div className="navigator-cat d-flex justify-between">
-                <div className="category-link-wrapper-mo d-block d-lg-none">
+                <div className="category-link-wrapper-mo d-block d-md-none">
                     <Button3E className="btn-dropdown">
                         {options[selected].startIcon}
                         <span>{options[selected].value}</span>
@@ -81,10 +81,10 @@ export function MarketplaceHeader() {
                         })}
                     </ListViewColumnAbsolute>
                 </div>
-                <Button className="btn-filter d-block d-lg-none">
+                <Button className="btn-filter d-block d-md-none">
                     Filter
                 </Button>
-                <div className="d-none d-lg-flex category-link-wrapper-pc">
+                <div className="d-none d-md-flex category-link-wrapper-pc">
                     {options.map((option, index) => {
                         return (
                             <Link to="/" key={index} className="d-flex align-items-center"

@@ -34,7 +34,7 @@
 @mixin custom-scroll-bar() {
     &::-webkit-scrollbar {
         border-radius: 10px;
-        width: 8px;
+        width: 6px;
     }
 
     &::-webkit-scrollbar-thumb {
