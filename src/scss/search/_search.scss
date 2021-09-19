@@ -160,6 +160,11 @@
                         .card {
                             background: $color-gray-4;
                             border: 1px solid $color-gray-3;
+
+                            &:hover {
+                                border: 1px solid $color-gray-6;
+                                @extend .shadow-lg;
+                            }
                         }
             
                         .card-body {
