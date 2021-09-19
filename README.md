@@ -26,7 +26,16 @@ yarn build
 ```
 yarn eject
 ```
-#### Watch SCSS
+#### Watch SCSS with **sass**
 ```
 sass scss/<name>.scss src/static/css/<name>.css -w
-``` 
+```
+#### Watch SCSS with **webpack**
+```
+npx webpack watch --mode development --config webpack.config.js
+```
+
+#### Build SCSS
+```
+npx webpack --config webpack.config.js
+```

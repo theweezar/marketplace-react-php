@@ -1,11 +1,20 @@
+const path = require('path');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 module.exports = {
+    mode: 'development',
+    entry: './src/scss/global.scss',
+    output: {
+        filename: 'global.js',
+        path: path.resolve(__dirname, 'src', 'static', 'dist'),
+    },
     module: {
         rules: [
             {
                 test: /\.(scss)$/,
                 use: [
                     {
-                        loader: 'style-loader', // inject CSS to page
+                        loader: MiniCssExtractPlugin.loader
                     },
                     {
                         loader: 'css-loader', // translates CSS into CommonJS modules
@@ -24,9 +33,17 @@ module.exports = {
                     },
                     {
                         loader: 'sass-loader', // compiles Sass to CSS
+                        options: {
+                            implementation: require('sass'),
+                        },
                     },
-                ],
-            },
+                ]
+            }
         ],
     },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: 'global.css',
+        })
+    ]
 };
