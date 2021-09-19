@@ -9,7 +9,7 @@ export function Filter() {
     const loopCheckbox = (length) => {
         var array = Array(length).fill(undefined);
         return array.map(() => {
-            const id = randomString(8);
+            const id = randomString(5);
             return (
                 <Item key={id} className="mb-2">
                     <CheckBox dataid={id}>
@@ -22,7 +22,7 @@ export function Filter() {
     }
 
     return (
-        <div className="filter-wrapper col-12 col-lg-3 text-white d-none d-lg-block">
+        <div className="filter-wrapper col-12 text-white d-none d-lg-block">
             <div className="d-flex justify-between">
                 <div className="filter-title">
                     Filter (0)
@@ -33,7 +33,7 @@ export function Filter() {
                     </Button>
                 </div>
             </div>
-            <div className="d-flex mt-1 filter-type">
+            <div className="d-flex mt-1 mt-lg-3 filter-type">
                 <Button className="w-100 active">
                     General
                 </Button>

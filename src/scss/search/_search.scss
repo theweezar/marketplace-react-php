@@ -8,11 +8,16 @@
     background-color: $color-gray-5;
     overflow-y: scroll;
     padding: 12px 8px;
+
+    @include custom-scroll-bar();
 }
 
 .search-result-wrapper {
     @include media-breakpoint-up(lg) {
         order: 2;
+        padding: 24px 32px;
+
+        @include flex(calc(100% - 280px))
     }
 
     .sort-price {
@@ -32,6 +37,10 @@
     }
 
     .display-tile {
+        @include media-breakpoint-up(lg) {
+            margin-left: 8px;
+        }
+
         button {
             font-size: 18px;
             padding: 0 10px;
@@ -43,6 +52,11 @@
             &:nth-child(2) {
                 border-radius: 0 .25rem .25rem 0;
             }
+
+            @include media-breakpoint-up(lg) {
+                width: 39px;
+                height: 39px;
+            }
         }
     }
 
@@ -52,11 +66,20 @@
         .product-amount {
             color: white;
             font-size: 20px;
+
+            @include media-breakpoint-up(lg) {
+                font-size: 28px;
+            }
         }
 
         .sort-sale {
             width: 160px;
-            .btn-sale {
+
+            @include media-breakpoint-up(lg) {
+                margin-left: 8px;
+            }
+
+            .btn-sort-sale {
                 padding: 8px 20px;
                 border-radius: 4px;
             }
@@ -70,55 +93,87 @@
             }
         }
 
-        .product-tile-list {
+        .product-tile-container {
             margin-top: 24px;
 
-            .col-6 {
-                padding: 0 4px;
-
-                @include media-breakpoint-up(lg) {
-                    padding: 0 8px;
-                }
+            @include media-breakpoint-up(lg) {
+                margin-right: 0;
+                margin-left: 0;
             }
 
-            .product-tile {
-                margin: 4px 0px;
+            .product-tile-list {
+                padding: 0 8px;
 
                 @include media-breakpoint-up(lg) {
-                    margin: 8px 0px;
+                    max-width: 85%;
                 }
+
+                @include media-breakpoint-up(xxl) {
+                    max-width: 95%;
+                }
+
+                @include media-breakpoint-up(xxl) {
+                    max-width: 97%;
+                }
+
+                .col-6 {
+                    padding: 0 4px;
+                }
+
+                .product-tile {
+                    margin: 4px 0px;
     
-                a {
-                    text-decoration: none;
-                    color: white;
-                    font-size: 12px;
+                    @include media-breakpoint-up(lg) {
+                        margin: 8px 0px;
+                        padding: 0 8px;
     
-                    .card {
-                        background: $color-gray-4;
-                        border: 1px solid $color-gray-3;
+                        @include flex(24%);
+                    }
+
+                    @include media-breakpoint-up(xxl) {
+                        @include flex(20%);
+                    }
+
+                    @include media-breakpoint-up(fhd) {
+                        @include flex(14.28%);
                     }
         
-                    .card-body {
-                        padding: 16px 12px;
-    
-                        .product-id {
-                            background-color: $color-warning-4;
-                            padding: 2px 8px;
-                            border-radius: 4px;
+                    a {
+                        text-decoration: none;
+                        color: white;
+                        font-size: 12px;
+        
+                        .card {
+                            background: $color-gray-4;
+                            border: 1px solid $color-gray-3;
                         }
-    
-                        .breed-count {
-                            color: $color-gray-2;
-                        }
-    
-                        .product-name {
-                            margin: 8px 0 4px;
-                        }
-    
-                        .price-container {
-                            font-size: 16px;
-                            text-align: center;
-                            padding-bottom: 16px;
+            
+                        .card-body {
+                            padding: 16px 12px;
+        
+                            .product-id {
+                                background-color: $color-warning-4;
+                                padding: 2px 8px;
+                                border-radius: 4px;
+                            }
+        
+                            .breed-count {
+                                color: $color-gray-2;
+                            }
+        
+                            .product-name {
+                                margin: 8px 0 4px;
+                            }
+        
+                            .price-container {
+                                font-size: 16px;
+                                text-align: center;
+                                padding-bottom: 16px;
+
+                                @include media-breakpoint-up(lg) {
+                                    padding-bottom: 0;
+                                }
+                            }
                         }
                     }
                 }

@@ -38,15 +38,15 @@ export function MarketplaceHeader() {
                         />
                     </Link>
                 </div>
-                <div className="d-flex align-items-center btn-product-menu">
+                <div className="d-none d-lg-flex align-items-center btn-product-menu">
                     <CgMenuGridR/>
                     <AiFillCaretDown/>
                 </div>
-                <Link to="/" className="d-flex align-items-center btn-tab btn-dashboard">
+                <Link to="/" className="d-none d-lg-flex align-items-center btn-tab btn-dashboard">
                     <span className="d-flex align-items-center"><RiDashboardFill/></span>
                     <span className="route-name ms-1">Dashboard</span>
                 </Link>
-                <Link to="/" className="d-flex align-items-center btn-tab btn-marketplace active">
+                <Link to="/" className="d-none d-lg-flex align-items-center btn-tab btn-marketplace active">
                     <span className="d-flex align-items-center"><AiTwotoneShop/></span>
                     <span className="route-name ms-1">Marketplace</span>
                 </Link>
@@ -84,7 +84,7 @@ export function MarketplaceHeader() {
                 <Button className="btn-filter d-block d-lg-none">
                     Filter
                 </Button>
-                <div className="d-flex category-link-wrapper-pc">
+                <div className="d-none d-lg-flex category-link-wrapper-pc">
                     {options.map((option, index) => {
                         return (
                             <Link to="/" key={index} className="d-flex align-items-center"

@@ -4,6 +4,9 @@
     @include media-breakpoint-up(lg) {
         position: inherit;
         order: 1;
+        padding: 20px;
+        
+        @include flex(280px);
     }
 
     .filter-title {
@@ -13,6 +16,10 @@
     .btn-clear-filter {
         color: $color-primary-4;
         border: none;
+
+        @include media-breakpoint-up(lg) {
+            padding: 0;
+        }
     }
 
     .filter-type {

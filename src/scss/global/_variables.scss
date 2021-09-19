@@ -55,3 +55,18 @@ $line-height-28: 28px;
 $line-height-32: 32px;
 $line-height-42: 42px;
 $letter-spacing-1: 1px;
+
+$grid-breakpoints: ( 
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xml: 1400px,
+    xxl: 1600px,
+    fhd: 1920px,
+    rt: 2560px,
+    rt15: 2880px,
+    uhd: 3840px,
+    s4k: 4096px
+);
