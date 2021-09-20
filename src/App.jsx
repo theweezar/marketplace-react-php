@@ -3,7 +3,7 @@ import { MarketplaceBody } from './layouts/MarketplaceBody';
 import { BrowserRouter } from "react-router-dom";
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import allReducers from './reducers/mainReducer';
+import allReducers from './scripts/redux/reducers/mainReducer';
 import './static/dist/global.css';
 
 const store = createStore(

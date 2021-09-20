@@ -25,13 +25,19 @@
 
     .sort-price {
         width: 160px;
-        .btn-sort-price {
+        .btn-selected {
             padding: 8px 20px;
             border-radius: 4px;
+            transition: 0.25s;
+
+            &:hover {
+                border: 1px solid $color-gray-1;
+                transition: 0.25s;
+            }
         }
 
-        .list-sort-price {
-            .item-sort-price {
+        .list-option {
+            .option {
                 background-color: $color-gray-6;
                 padding: 8px 20px;
                 border: none;
@@ -82,13 +88,19 @@
                 margin-left: 8px;
             }
 
-            .btn-sort-sale {
+            .btn-selected {
                 padding: 8px 20px;
                 border-radius: 4px;
+                transition: 0.25s;
+
+                &:hover {
+                    border: 1px solid $color-gray-1;
+                    transition: 0.25s;
+                }
             }
     
-            .list-sort-sale {
-                .item-sort-sale {
+            .list-option {
+                .option {
                     background-color: $color-gray-6;
                     padding: 8px 20px;
                     border: none;

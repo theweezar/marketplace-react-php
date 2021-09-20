@@ -28,7 +28,7 @@ export function MarketplaceHeader({...props}) {
 
     const isSideBarOpen = useSelector(state => state.isSideBarOpen);
     const dispatch = useDispatch();
-    const toggle = () => {
+    const toggleSideBar = () => {
         return {
             type: !isSideBarOpen
         };
@@ -66,7 +66,7 @@ export function MarketplaceHeader({...props}) {
                     </Button3E>
                 </Link>
                 <div className="hambuger-menu ml-auto d-flex align-items-center d-md-none">
-                    <GiHamburgerMenu onClick={() => dispatch(toggle())} />
+                    <GiHamburgerMenu onClick={() => dispatch(toggleSideBar())} />
                 </div>
             </div>
             <div className="navigator-cat d-flex justify-between">

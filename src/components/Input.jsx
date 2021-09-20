@@ -1,5 +1,9 @@
-import { FaCheck, FaCircle } from 'react-icons/fa';
+import { FaCheck, FaCircle, FaAngleDown } from 'react-icons/fa';
+import { Button3E } from '../components/Button';
+import { ListViewColumnAbsolute, Item } from '../components/List';
 import { useState } from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import { setCurrentDropDownAction } from '../scripts/redux/actions/mainAction';
 
 export function CheckBox({...props}) {
     props.className = "d-flex check-box-df " + (props.className || "");
@@ -36,4 +40,39 @@ export function SliderTrack({...props}) {
             </div>
         </div>
     );
+}
+
+export function DropDownMenu3E({...props}) {
+    const options = props.options;
+    const name = props.name;
+
+    const [selectedIndex, setSelectedIndex] = useState(props.index || 0);
+    const currentDropdown = useSelector(state => state.currentDropdown);
+    const dispatch = useDispatch();
+
+    return (
+        <div className={props.className}>
+            <Button3E className="btn-selected w-100" onClick={() => dispatch(setCurrentDropDownAction(currentDropdown !== name ? name:""))}>
+                {options[selectedIndex].start}
+                {options[selectedIndex].value}
+                <FaAngleDown />
+            </Button3E>
+            <ListViewColumnAbsolute className={"list-option " + (name !== currentDropdown ? "d-none":"")}>
+                {options.map((option, index) => {
+                    return (
+                        <Item key={option.id}>
+                            <Button3E className="option w-100" onClick={() => {
+                                setSelectedIndex(index);
+                                dispatch(setCurrentDropDownAction(""));
+                            }}>
+                                <></>
+                                <span>{option.value}</span>
+                                <></>
+                            </Button3E>
+                        </Item>
+                    );
+                })}
+            </ListViewColumnAbsolute>
+        </div>
+    )
 }

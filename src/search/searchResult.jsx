@@ -1,7 +1,6 @@
-import { ListViewColumnAbsolute, Item } from '../components/List';
-import { Button, Button3E } from '../components/Button';
+import { Button } from '../components/Button';
 import { Image } from '../components/IconImage';
-import { FaAngleDown } from 'react-icons/fa';
+import { DropDownMenu3E } from '../components/Input';
 import { CgMenuGridR } from 'react-icons/cg'
 import { FaList } from 'react-icons/fa';
 import { useState } from 'react';
@@ -11,38 +10,18 @@ import axieFullTransparent1 from '../static/images/axie-full-transparent_1.png';
 
 function SortPrice() {
     const optionsSortPrice = [
-        { id: Math.random().toString(36).substr(2, 9), value: 'Lowest Price'},
-        { id: Math.random().toString(36).substr(2, 9), value: 'Lowest ID'},
-        { id: Math.random().toString(36).substr(2, 9), value: 'Highest ID'},
-        { id: Math.random().toString(36).substr(2, 9), value: 'Lowest Price'},
-        { id: Math.random().toString(36).substr(2, 9), value: 'Highest Price'},
-        { id: Math.random().toString(36).substr(2, 9), value: 'Latest'}
+        { id: Math.random().toString(36).substr(2, 9), value: 'Lowest Price', start: <></>},
+        { id: Math.random().toString(36).substr(2, 9), value: 'Lowest ID', start: <></>},
+        { id: Math.random().toString(36).substr(2, 9), value: 'Highest ID', start: <></>},
+        { id: Math.random().toString(36).substr(2, 9), value: 'Lowest Price', start: <></>},
+        { id: Math.random().toString(36).substr(2, 9), value: 'Highest Price', start: <></>},
+        { id: Math.random().toString(36).substr(2, 9), value: 'Latest', start: <></>}
     ];
-    
-    const [selectedPrice, setSelectedPrice] = useState(0);
-    const [expand, setExpand] = useState(false)
+
+    const index = 0;
 
     return (
-        <div className="sort-price">
-            <Button3E className="btn-sort-price w-100" onClick={() => setExpand(!expand)}>
-                <></>
-                <span>{optionsSortPrice[selectedPrice].value}</span>
-                <FaAngleDown />
-            </Button3E>
-            <ListViewColumnAbsolute className={"list-sort-price " + (!expand ? "d-none":"")}>
-                {optionsSortPrice.map((option, index) => {
-                    return (
-                        <Item key={option.id}>
-                            <Button3E className="item-sort-price w-100" onClick={() => setSelectedPrice(index)}>
-                                <></>
-                                <span>{option.value}</span>
-                                <></>
-                            </Button3E>
-                        </Item>     
-                    );
-                })}
-            </ListViewColumnAbsolute>
-        </div>
+        <DropDownMenu3E className="sort-price" index={index} options={optionsSortPrice} name="sort-price-option"/>
     );
 }
 
@@ -67,28 +46,10 @@ function SortSale() {
         { id: Math.random().toString(36).substr(2, 9), value: 'Not for sale'}
     ];
 
-    const [selectedSale, setSelectedSale] = useState(0);
+    const index = 0;
+
     return (
-        <div className="sort-sale">
-            <Button3E className="btn-sort-sale w-100">
-                <></>
-                <span>{optionsSortSale[selectedSale].value}</span>
-                <FaAngleDown />
-            </Button3E>
-            <ListViewColumnAbsolute className="list-sort-sale d-none">
-                {optionsSortSale.map((option, index) => {
-                    return (
-                        <Item key={option.id}>
-                            <Button3E className="item-sort-sale w-100" onClick={() => setSelectedSale(index)}>
-                                <></>
-                                <span>{option.value}</span>
-                                <></>
-                            </Button3E>
-                        </Item>
-                    );
-                })}
-            </ListViewColumnAbsolute>
-        </div>
+        <DropDownMenu3E className="sort-sale" index={index} options={optionsSortSale} name="sort-sale-option"/>
     )
 }
 
