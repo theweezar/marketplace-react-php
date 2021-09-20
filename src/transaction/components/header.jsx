@@ -1,5 +1,5 @@
 // Dependencies
-import { useEffect, useState } from "react";
+import React from "react";
 // Components
 import Branding from "./header/branding";
 import Navigator from "./header/navigator";
@@ -22,18 +22,6 @@ const Header = (props) => {
   const BRAND_BADGES = ["Mainnet", "Testnet"];
   // 02.Navigation Area
     /* -------STATES ----------------------- */
-    const [openAccountBox, setOpenAccountBox] = useState(false);
-    const [openTokenBox, setOpenTokenBox] = useState(false);
-
-    const onClickAccountButton = () => {
-      setOpenAccountBox(!openAccountBox);
-      setOpenTokenBox(false);
-    };
-
-    const onClickTokenButton = () => {
-      setOpenTokenBox(!openTokenBox);
-      setOpenAccountBox(false);
-    };
 
     const NAVIGATION_ITEMS = [
       {
@@ -74,8 +62,6 @@ const Header = (props) => {
             name: "Vertified Contracts",
           },
         ],
-        onClickButton: onClickAccountButton,
-        isOpen: openAccountBox,
       },
       {
         keyid: "navigation_items_tokens",
@@ -108,19 +94,15 @@ const Header = (props) => {
             name: "ERC721 Transfers",
           },
         ],
-        onClickButton: onClickTokenButton,
-        isOpen: openTokenBox,
       },
     ];
+    
     const SELECT_BOXES = NAVIGATION_ITEMS.filter((obj) => obj.options.length > 0);
 
   // 03.Searching Area
   const INPUT_PLACEHOLDER_TEXT = "Address, Txn Hash, Block, etc.";
+  
   // =FUNC=================================================
-  useEffect(() => {
-    console.log(openAccountBox);
-    console.log(openTokenBox);
-  }, [openAccountBox, openTokenBox]);
 
   return (
     <header>

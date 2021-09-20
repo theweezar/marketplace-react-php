@@ -1,5 +1,5 @@
 // DEPENDENCES
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { BsFillCaretDownFill } from "react-icons/bs";
 import { GoPrimitiveDot } from "react-icons/go";
 // COMPONENTS
@@ -18,7 +18,7 @@ function Branding(props) {
   const BRAND_NAME = props.brandName;
   const BRAND_BADGES = props.brandBadges;
   const [openBadgeBox, setOpenBadgeBox] = useState(false);
-
+  const node = useRef();
   // =FUNC=================================================
   const onClickBadgeButton = () => {
     setOpenBadgeBox(!openBadgeBox);

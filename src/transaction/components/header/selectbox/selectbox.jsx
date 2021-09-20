@@ -1,5 +1,7 @@
 // DEPENDENCES
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import openModal from "../../../../redux/actions/openModalAction";
 // COMPONENTS
 
 /**
@@ -10,11 +12,37 @@ import React from "react";
 function SelectBox(props) {
   // =STATES=================================================
   const SBOX = props.sbox;
+  const isModalOpened = useSelector(state => state.isModalOpened);
+  const dispatch = useDispatch();
+  const node = useRef();
+  const handleOutsideClick = (e) => { 
+    // Outside Click
+    if (node.current && node.current.contains(e.target) ) {
+      console.log("Inside" +e.target)
+    }else if(isModalOpened !== ""){
+      console.log("Outside: "+e.target)
+      // dispatch( openModal("") )
+    }
+    
+  };
+  
+  function callback() {
+    if( isModalOpened !== "" && isModalOpened !== "@@INIT")
+    document.addEventListener("mousedown", handleOutsideClick);
+    else
+    document.removeEventListener("mousedown", handleOutsideClick );
+    
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick );
+    };
+  }
 
+  useEffect(callback,[isModalOpened]);
   // =FUNC=================================================
   return (
     <div
-    className={(SBOX.isOpen ? " " : "d-none ") + props.thisClassName}
+    ref={node}
+    className={( isModalOpened.toLowerCase() === SBOX.name.toLowerCase() ? " " : "d-none ") + props.thisClassName}
     id={SBOX.name.toLowerCase() + "-box"}
   >
     {SBOX.options.map((item) => {
@@ -22,7 +50,7 @@ function SelectBox(props) {
         return <div className="line" key={item.keyid}></div>;
       } else {
         return (
-          <div className="item" key={item.keyid}>
+          <div className="item"  key={item.keyid}>
             {item.name}
           </div>
         );
