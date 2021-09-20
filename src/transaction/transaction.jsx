@@ -1,7 +1,7 @@
 // Dependencies
 import React from "react";
 // Components
-import Table from './components/table';
+import Tables from './components/tables';
 import TitleBar from "./components/titlebar";
 
 /**
@@ -26,7 +26,7 @@ const Transaction = (props) => {
         title={TRANSACTION_TITLE}
         limitRecords={LIMIT_LASTEST_RECORDS}/>
         {/* --1.2. TABLE------------------------------  */}
-        <Table thisClassName="transaction__table__box"/>
+        <Tables thisClassName="transaction__table__box"/>
       </div>
     </>
   );

@@ -1,0 +1,171 @@
+@import "../../variables.scss";
+
+// ==================================================
+// For Component Transaction/DesktopTable
+// ==================================================
+.table__desktop {
+  .table__header {
+    padding: 0;
+    margin: 0;
+    border-radius: 10px;
+    overflow: hidden;
+
+    .header_list {
+      background-color: $mobile-box-bgcolor;
+      box-sizing: border-box;
+      margin: 0;
+
+      .header_item {
+        text-transform: uppercase;
+        font-size: 0.67em;
+        padding: 10px 0;
+        font-weight: bold;
+        color: $list-item-text-color;
+        margin: 0;
+        &.icon {
+          min-width: 40px;
+          width: auto;
+        }
+        &.txhash {
+          min-width: 140px;
+          width: 13.07%;
+        }
+
+        &.action {
+          min-width: 120px;
+          width: 12%;
+        }
+
+        &.block {
+          min-width: 80px;
+          width: auto;
+        }
+
+        &.age {
+          min-width: 100px;
+          width: auto;
+        }
+
+        &.status {
+          min-width: 80px;
+          width: 4.66%;
+        }
+
+        &.from {
+          min-width: 160px;
+          width: 15%;
+        }
+
+        &.direct {
+          min-width: 80px;
+          width: auto;
+        }
+
+        &.to {
+          min-width: 200px;
+          width: 14.71%;
+        }
+
+        &.value {
+          min-width: 80px;
+          width: auto;
+        }
+      }
+    }
+  }
+  .table__container {
+    // COMMON
+    a {
+      text-decoration: none;
+    }
+    // SPECIFIC
+    .table_item {
+      &:hover,
+      &.active {
+        background-color: rgb(238, 244, 250);
+      }
+      border-bottom: 1px solid $line-color;
+      .item_content {
+        padding: 15px 0;
+        font-weight: 400;
+        font-size: 0.95em;
+        &.icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          .icon {
+            background-color: $mobile-box-bgcolor;
+            padding: 5px;
+            border-radius: 8px;
+            svg {
+              margin-top: -5px;
+              fill: $subtitle-text-color;
+            }
+          }
+        }
+        &.txhash {
+          .link {
+            a {
+              font-size: 0.9em;
+
+              span {
+                margin-right: 5px;
+              }
+            }
+          }
+        }
+        // &.action{
+
+        // }
+        // &.block{
+
+        // }
+        &.age {
+          .time {
+            color: $time-text-color-desktop;
+          }
+        }
+        &.status {
+          .custom-badge {
+            padding: 2.5px 8px;
+            font-size: 0.7em;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            background-color: $success-color;
+            color: #fff;
+            border-radius: 8px;
+            display: flex;
+            width: fit-content;
+            box-sizing: border-box;
+            align-items: center;
+          }
+        }
+        &.from {
+          a {
+            span {
+              &:first-child {
+                margin-right: 2px;
+              }
+            }
+          }
+        }
+        &.direct {
+          svg {
+            fill: $color-info;
+          }
+        }
+        &.to {
+          a {
+            .img-box {
+              margin-right: 5px;
+            }
+          }
+        }
+        &.value {
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
