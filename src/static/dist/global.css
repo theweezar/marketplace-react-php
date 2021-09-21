@@ -11438,7 +11438,7 @@ textarea.form-control-lg {
 }
 
 .z-1010 {
-  z-index: 1000;
+  z-index: 1010;
 }
 
 .z-1020 {
@@ -11553,6 +11553,10 @@ input:focus {
           transform: translate(4px, calc(-25% - 1px));
 }
 
+.header-wrapper {
+  position: relative;
+}
+
 .btn-login {
   padding: 8px 20px;
   background-color: #046cfc;
@@ -11664,22 +11668,23 @@ input:focus {
   width: 100%;
   height: 100vh;
   background-color: rgba(36, 39, 53, 0.5);
-  z-index: 1030;
 }
 
 .veil {
   position: absolute;
   width: 100%;
   height: 100vh;
-  z-index: 1050;
 }
 
 .right-side-bar {
-  position: absolute;
+  position: fixed;
   width: 80%;
   height: 100vh;
   background-color: #242735;
-  z-index: 1040;
+  top: 0;
+  bottom: 0;
+  left: auto;
+  display: block;
   right: -100%;
   transition: 0.25s;
 }

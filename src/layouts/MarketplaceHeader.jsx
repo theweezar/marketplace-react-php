@@ -1,20 +1,27 @@
 import { Link } from 'react-router-dom';
+import { useState, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { BiDownArrow } from 'react-icons/bi';
-import { Button, Button3E } from '../components/Button';
-import { IconImage24 } from '../components/IconImage';
-import { ListViewColumnAbsolute, Item } from '../components/List';
 import { BiLogIn } from 'react-icons/bi';
-import { AiTwotoneShop, AiFillCaretDown } from 'react-icons/ai';
 import { RiDashboardFill } from 'react-icons/ri';
 import { CgMenuGridR } from 'react-icons/cg';
+import { AiTwotoneShop, AiFillCaretDown } from 'react-icons/ai';
+
+import { Button, Button3E } from '../components/Button';
+import { IconImage24 } from '../components/IconImage';
+import { RightSideBar } from "./RightSideBar";
+import { ListViewColumnAbsolute, Item } from '../components/List';
+import { useOnClickOutside } from '../components/Input';
+
+import { setSideBarAction } from '../scripts/redux/actions/mainAction';
+import properties from '../properties.json';
+
 import logo from '../static/images/logo.png';
 import tabAxie from '../static/images/tab-axie.png';
 import tabLand from '../static/images/tab-land.png';
 import tabItem from '../static/images/tab-item.png';
 import tabBundle from '../static/images/tab-bundle.png';
-import { useState } from 'react';
-import { useSelector, useDispatch } from "react-redux";
 
 export function MarketplaceHeader({...props}) {
     const options = [
@@ -25,17 +32,16 @@ export function MarketplaceHeader({...props}) {
     ];
 
     const [selected, setSelected] = useState(0);
-
-    const isSideBarOpen = useSelector(state => state.isSideBarOpen);
     const dispatch = useDispatch();
-    const toggleSideBar = () => {
-        return {
-            type: !isSideBarOpen
-        };
-    }
+    const ref = useRef();
+    const isSideBarOpen = useSelector(state => state.isSideBarOpen);
+    useOnClickOutside(ref, () => dispatch(setSideBarAction(properties.SIDEBAR_CLOSE)));
 
     return (
         <div className="header-wrapper">
+            <div ref={ref}>
+                <RightSideBar className={(isSideBarOpen ? "expand":"")}/>
+            </div>
             <div className="navigator-page d-flex w-100">
                 <div className="logo-container">
                     <Link to="/">
@@ -66,7 +72,7 @@ export function MarketplaceHeader({...props}) {
                     </Button3E>
                 </Link>
                 <div className="hambuger-menu ml-auto d-flex align-items-center d-md-none">
-                    <GiHamburgerMenu onClick={() => dispatch(toggleSideBar())} />
+                    <GiHamburgerMenu onClick={() => dispatch(setSideBarAction(properties.SIDEBAR_OPEN))}/>
                 </div>
             </div>
             <div className="navigator-cat d-flex justify-between">

@@ -1,9 +1,8 @@
+import { useState, useRef, useEffect } from 'react';
 import { FaCheck, FaCircle, FaAngleDown } from 'react-icons/fa';
+
 import { Button3E } from '../components/Button';
 import { ListViewColumnAbsolute, Item } from '../components/List';
-import { useState } from 'react';
-import { useSelector, useDispatch } from "react-redux";
-import { setCurrentDropDownAction } from '../scripts/redux/actions/mainAction';
 
 export function CheckBox({...props}) {
     props.className = "d-flex check-box-df " + (props.className || "");
@@ -42,28 +41,49 @@ export function SliderTrack({...props}) {
     );
 }
 
+export function useOnClickOutside(ref, handler) {
+    useEffect(
+        () => {
+            const listener = (event) => {
+                if (!ref.current || ref.current.contains(event.target)) {
+                    return;
+                }
+                handler();
+            };
+            document.addEventListener("mousedown", listener);
+            document.addEventListener("touchstart", listener);
+            return () => {
+                document.removeEventListener("mousedown", listener);
+                document.removeEventListener("touchstart", listener);
+            };
+        },
+        [ref, handler]
+    );
+}
+
 export function DropDownMenu3E({...props}) {
     const options = props.options;
-    const name = props.name;
-
+    
     const [selectedIndex, setSelectedIndex] = useState(props.index || 0);
-    const currentDropdown = useSelector(state => state.currentDropdown);
-    const dispatch = useDispatch();
+    const [dropDown, setDropDown] = useState(false)
+    const ref = useRef();
+    
+    useOnClickOutside(ref, () => setDropDown(false));
 
     return (
-        <div className={props.className}>
-            <Button3E className="btn-selected w-100" onClick={() => dispatch(setCurrentDropDownAction(currentDropdown !== name ? name:""))}>
+        <div className={props.className} ref={ref}>
+            <Button3E className="btn-selected w-100" onClick={() => setDropDown(!dropDown)}>
                 {options[selectedIndex].start}
                 {options[selectedIndex].value}
                 <FaAngleDown />
             </Button3E>
-            <ListViewColumnAbsolute className={"list-option " + (name !== currentDropdown ? "d-none":"")}>
+            <ListViewColumnAbsolute className={"list-option " + (!dropDown ? "d-none":"")}>
                 {options.map((option, index) => {
                     return (
                         <Item key={option.id}>
                             <Button3E className="option w-100" onClick={() => {
                                 setSelectedIndex(index);
-                                dispatch(setCurrentDropDownAction(""));
+                                setDropDown(false);
                             }}>
                                 <></>
                                 <span>{option.value}</span>

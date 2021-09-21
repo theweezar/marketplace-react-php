@@ -1,9 +1,10 @@
+import { useState } from "react";
+import { GiChaingun } from "react-icons/gi";
+
 import { Button } from "../components/Button";
 import { ListViewColumn, Item } from "../components/List";
 import { CheckBox, SliderTrack } from "../components/Input";
-import { GiChaingun } from "react-icons/gi";
 import { randomColorHex, randomString } from "../scripts/randomHelpers";
-import { useState } from "react";
 
 function FilterTab({...props}) {
     props.className = 'd-flex ' + (props.className || '');
@@ -26,7 +27,6 @@ function FilterTab({...props}) {
 }
 
 export function Filter() {
-
     const loopCheckbox = (length) => {
         var array = Array(length).fill(undefined);
         return array.map(() => {
@@ -41,8 +41,6 @@ export function Filter() {
             );
         });
     }
-
-    
 
     return (
         <div className="filter-wrapper col-12 text-white d-none d-md-block">

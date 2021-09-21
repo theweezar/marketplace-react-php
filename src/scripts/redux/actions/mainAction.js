@@ -1,11 +1,6 @@
-export function setCurrentDropDownAction(name) {
-    return {
-        type: name
-    };
-}
 
-export function sideBarAction(currentState) {
+export function setSideBarAction(currentState) {
     return {
-        type: !currentState
+        type: currentState
     };
 }

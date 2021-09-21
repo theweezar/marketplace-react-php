@@ -1,11 +1,13 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+import { CgMenuGridR } from 'react-icons/cg'
+import { FaList } from 'react-icons/fa';
+import { ImArrowLeft2, ImArrowRight2 } from 'react-icons/im';
+
 import { Button } from '../components/Button';
 import { Image } from '../components/IconImage';
 import { DropDownMenu3E } from '../components/Input';
-import { CgMenuGridR } from 'react-icons/cg'
-import { FaList } from 'react-icons/fa';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ImArrowLeft2, ImArrowRight2 } from 'react-icons/im';
 import axieFullTransparent1 from '../static/images/axie-full-transparent_1.png';
 
 function SortPrice() {
@@ -13,7 +15,6 @@ function SortPrice() {
         { id: Math.random().toString(36).substr(2, 9), value: 'Lowest Price', start: <></>},
         { id: Math.random().toString(36).substr(2, 9), value: 'Lowest ID', start: <></>},
         { id: Math.random().toString(36).substr(2, 9), value: 'Highest ID', start: <></>},
-        { id: Math.random().toString(36).substr(2, 9), value: 'Lowest Price', start: <></>},
         { id: Math.random().toString(36).substr(2, 9), value: 'Highest Price', start: <></>},
         { id: Math.random().toString(36).substr(2, 9), value: 'Latest', start: <></>}
     ];

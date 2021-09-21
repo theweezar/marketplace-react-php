@@ -1,16 +1,19 @@
 import { combineReducers } from "redux";
 
 const isSideBarOpenReducer = (state = false, action) => {
-    return typeof action.type === 'boolean' ? action.type : false;
+    switch (action.type) {
+        case 'SIDEBAR_OPEN':
+            return true;
+        case 'SIDEBAR_CLOSE':
+            return false;
+        default:
+            return false;
+    }
+    // return typeof action.type === 'boolean' ? action.type : false;
 };
 
-const currentDropdownReducer = (state = "", action) => {
-    return action.type !== "@@INIT" ? action.type : "";
-}
-
 const allReducers = combineReducers({
-    isSideBarOpen: isSideBarOpenReducer,
-    currentDropdown: currentDropdownReducer
+    isSideBarOpen: isSideBarOpenReducer
 });
 
 export default allReducers;

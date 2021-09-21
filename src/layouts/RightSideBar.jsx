@@ -1,17 +1,17 @@
-import { ListViewColumn, Item } from "../components/List";
 import { Link } from "react-router-dom";
-import { Button3E } from "../components/Button";
-import { AiOutlineDashboard, AiTwotoneShop } from 'react-icons/ai';
 import { FiHelpCircle } from 'react-icons/fi';
 import { FaProductHunt } from 'react-icons/fa';
 import { BiLogIn } from 'react-icons/bi';
-import { useSelector } from "react-redux";
+import { AiOutlineDashboard, AiTwotoneShop } from 'react-icons/ai';
+
+import { ListViewColumn, Item } from "../components/List";
+import { Button3E } from "../components/Button";
 
 export function RightSideBar({...props}) {
-    const isSideBarOpen = useSelector(state => state.isSideBarOpen);
+    props.className = "right-side-bar z-1020 " + (props.className || "");
 
     return (
-        <div className={"right-side-bar " + (isSideBarOpen ? "expand":"")}>
+        <div {...props}>
             <ListViewColumn>
                 <Item>
                     <Link to="/" className="d-flex align-items-center">
