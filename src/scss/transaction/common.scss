@@ -12,6 +12,10 @@
 // ==================================================
 // Function
 // ==================================================
+#root{
+    position: relative;
+}
+
 .select_box {
     position: absolute;
     background-color: #fff;
@@ -34,9 +38,15 @@
     cursor: pointer;
     border-radius: 5px;
     padding: 8px 0;
+    a{
+        text-decoration: none;
+        color: inherit;
+    }
     &:hover {
-        text-decoration: underline $color-info;
         background-color: #f0f5f8;
+        a{
+        text-decoration: underline $color-info;
+        }
     }
     .custom-dot {
         padding: 10px;
@@ -45,6 +55,7 @@
         stroke-width: 0.3px;
         }
     }
+    
     }
 }
 

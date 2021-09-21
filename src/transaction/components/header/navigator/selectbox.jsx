@@ -1,5 +1,5 @@
 // DEPENDENCES
-import React, { useEffect, useRef } from "react";
+import React from "react";
 // COMPONENTS
 
 /**

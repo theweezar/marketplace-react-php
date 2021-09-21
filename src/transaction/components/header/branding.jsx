@@ -1,8 +1,11 @@
 // DEPENDENCES
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BsFillCaretDownFill } from "react-icons/bs";
 import { GoPrimitiveDot } from "react-icons/go";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useOnClickOutside } from "../../../hooks/useOnClickOutside";
+import badgeAction from "../../../redux/actions/badgeAction";
 // COMPONENTS
 
 /**
@@ -18,10 +21,15 @@ function Branding(props) {
   // =STATES=================================================
   const BRAND_NAME = props.brandName;
   const BRAND_BADGES = props.brandBadges;
+  const badge = useSelector((state) => state.badge);
+  const dispatch = useDispatch();
   const [openModalBox, setOpenModalBox] = useState(false);
   const node = useRef();
   // =FUNC=================================================
-  useOnClickOutside(node, () =>setOpenModalBox(false));
+  useEffect(() => {
+    dispatch(badgeAction.write(BRAND_BADGES[0]));
+  }, []);
+  useOnClickOutside(node, () => setOpenModalBox(false));
   const onClickBadgeButton = () => {
     setOpenModalBox(!openModalBox);
   };
@@ -61,9 +69,9 @@ function Branding(props) {
       <div className="branding__badge_box d-flex align-items-center">
         <div
           className="custom-badge background-info text-uppercase "
-          key={BRAND_BADGES[0]}
+          key={badge.keyid}
         >
-          {BRAND_BADGES[0]}
+          {badge.name}
         </div>
         <button
           className="btn select-btn d-none d-lg-block "
@@ -80,14 +88,20 @@ function Branding(props) {
           " select_box branding__badge_select_box border "
         }
       >
-        <div className="item">
-          <span className="custom-dot">
-            <GoPrimitiveDot />
-          </span>
-          <span className="info">
-            {BRAND_NAME} {BRAND_BADGES[1]}
-          </span>
-        </div>
+        {BRAND_BADGES.map((item) => {
+          if (item.keyid !== badge.keyid) {
+            return (
+              <div className="item">
+                <span className="custom-dot">
+                  <GoPrimitiveDot />
+                </span>
+                <a href="#" className="info">
+                  {BRAND_NAME} {item.name}
+                </a>
+              </div>
+            );
+          } else { return ""; }
+        })}
       </div>
     </div>
   );

@@ -16,90 +16,95 @@ import Searcher from "./header/searcher";
  */
 const Header = (props) => {
   // =STATES=================================================
-  // 01.Branding Area
+  //  API
   const BRAND_NAME = "Ronin";
-  const BRAND_BADGES = ["Mainnet", "Testnet"];
-  // 02.Navigation Area
-    /* -------STATES ----------------------- */
-
-    const NAVIGATION_ITEMS = [
-      {
-        keyid: "navigation_item_home",
-        active: false,
-        name: "Home",
-        route: "/home",
-        options: [],
-      },
-      {
-        keyid: "navigation_item_transactions",
-        active: true,
-        name: "Transactions",
-        route: "/",
-        options: [],
-      },
-      {
-        keyid: "navigation_item_blocks",
-        active: false,
-        name: "Blocks",
-        route: "#",
-        options: [],
-      },
-      {
-        keyid: "navigation_items_accounts",
-        active: false,
-        name: "Accounts",
-        route: "#",
-        options: [
-          {
-            keyid: "accounts-options-01",
-            type: "text",
-            name: "All accounts",
-          },
-          {
-            keyid: "accounts-options-02",
-            type: "text",
-            name: "Vertified Contracts",
-          },
-        ],
-      },
-      {
-        keyid: "navigation_items_tokens",
-        active: false,
-        name: "Tokens",
-        route: "#",
-        options: [
-          {
-            keyid: "tokens-options-01",
-            type: "text",
-            name: "ERC20 Tokens",
-          },
-          {
-            keyid: "tokens-options-02",
-            type: "text",
-            name: "ERC20 Transfers",
-          },
-          {
-            keyid: "tokens-options-03",
-            type: "line",
-          },
-          {
-            keyid: "tokens-options-04",
-            type: "text",
-            name: "ERC721 Tokens",
-          },
-          {
-            keyid: "tokens-options-05",
-            type: "text",
-            name: "ERC721 Transfers",
-          },
-        ],
-      },
-    ];
-    
-
-  // 03.Searching Area
+  const BRAND_BADGES = [
+    {
+      keyid: "brand_badges_mainnet",
+      name: "Mainnet",
+      route: "#",
+    },
+    {
+      keyid: "brand_badges_testnet",
+      name: "Testnet",
+      route: "#",
+    },
+  ];
+  const NAVIGATION_ITEMS = [
+    {
+      keyid: "navigation_item_home",
+      active: false,
+      name: "Home",
+      route: "/home",
+      options: [],
+    },
+    {
+      keyid: "navigation_item_transactions",
+      active: true,
+      name: "Transactions",
+      route: "/",
+      options: [],
+    },
+    {
+      keyid: "navigation_item_blocks",
+      active: false,
+      name: "Blocks",
+      route: "#",
+      options: [],
+    },
+    {
+      keyid: "navigation_items_accounts",
+      active: false,
+      name: "Accounts",
+      route: "#",
+      options: [
+        {
+          keyid: "accounts-options-01",
+          type: "text",
+          name: "All accounts",
+        },
+        {
+          keyid: "accounts-options-02",
+          type: "text",
+          name: "Vertified Contracts",
+        },
+      ],
+    },
+    {
+      keyid: "navigation_items_tokens",
+      active: false,
+      name: "Tokens",
+      route: "#",
+      options: [
+        {
+          keyid: "tokens-options-01",
+          type: "text",
+          name: "ERC20 Tokens",
+        },
+        {
+          keyid: "tokens-options-02",
+          type: "text",
+          name: "ERC20 Transfers",
+        },
+        {
+          keyid: "tokens-options-03",
+          type: "line",
+        },
+        {
+          keyid: "tokens-options-04",
+          type: "text",
+          name: "ERC721 Tokens",
+        },
+        {
+          keyid: "tokens-options-05",
+          type: "text",
+          name: "ERC721 Transfers",
+        },
+      ],
+    },
+  ];
   const INPUT_PLACEHOLDER_TEXT = "Address, Txn Hash, Block, etc.";
-  
+
   // =FUNC=================================================
 
   return (

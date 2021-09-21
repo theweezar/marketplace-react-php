@@ -1,8 +1,10 @@
 // Dependencies
 import { combineReducers } from 'redux';
 // Reducers
-import isModalOpened from './reducers/toggleModalReducer';
+import {isSidebarOpen} from './reducers/sidebarReducer';
+import { badge } from './reducers/badgeReducer';
 
 export default combineReducers({
-    isModalOpened
+    isSidebarOpen,
+    badge 
 })

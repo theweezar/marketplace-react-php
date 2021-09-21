@@ -1,8 +1,11 @@
 // DEPENDENCES
 import React from 'react';
 import { HiMenu } from "react-icons/hi";
+import { useDispatch } from 'react-redux';
+import sidebarAction from '../../../redux/actions/sidebarAction';
 // COMPONENTS
 import NavigationItem from './navigator/item';
+
 /**
  * Use in layout/transaction/components/header
  * Include 3 component
@@ -15,12 +18,15 @@ import NavigationItem from './navigator/item';
 function Navigator(props) {
     // =STATES=================================================
     const NAVIGATION_ITEMS = props.navigationItems;
-    
+    const dispatch = useDispatch();
     // =FUNC=================================================
+    const onClickHandler = () => {
+      dispatch( sidebarAction.show() );
+    };
     return (
         <div className={props.thisClassName}>
          {/* --1-MobileMenuBtn ------------ */}
-         <button className=" btn p-0 m-0 d-lg-none">
+         <button className=" btn p-0 m-0 d-lg-none" onClick={onClickHandler}>
             <HiMenu />
           </button>
 

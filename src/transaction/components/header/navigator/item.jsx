@@ -1,8 +1,8 @@
 // DEPENDENCES
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { BsFillCaretDownFill } from "react-icons/bs";
-import {useOnClickOutside} from "../../../../hooks/useOnClickOutside"
+import { useOnClickOutside } from "../../../../hooks/useOnClickOutside";
 // COMPONENTS
 import SelectBox from "./selectbox";
 
@@ -14,14 +14,16 @@ import SelectBox from "./selectbox";
 function NavigationItem(props) {
   // =STATES=================================================
   const navigationItem = props.navigationItem;
+  const type = props.type ?? "";
   const [isModalOpen, setIsModalOpen] = useState(false);
   const node = useRef();
   // =FUNC=================================================
-  useOnClickOutside(node, () =>setIsModalOpen(false));
+  useOnClickOutside(node, () => {
+    if (type === "") setIsModalOpen(false);
+  });
   const onClickHandler = () => {
-      setIsModalOpen(!isModalOpen);
+    setIsModalOpen(!isModalOpen);
   };
-
   return (
     <div className="list-item-container" ref={node}>
       <div
@@ -39,7 +41,14 @@ function NavigationItem(props) {
         )}
       </div>
       {navigationItem.options.length > 0 && isModalOpen ? (
-        <SelectBox thisClassName="select_box navigation__list_select_box border" sbox={navigationItem}/>
+        type === "" ? (
+          <SelectBox
+            thisClassName="select_box navigation__list_select_box border"
+            sbox={navigationItem}
+          />
+        ) : (
+          <SelectBox thisClassName="side_box" sbox={navigationItem} />
+        )
       ) : (
         ""
       )}

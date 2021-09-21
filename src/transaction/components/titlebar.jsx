@@ -22,15 +22,15 @@ function TitleBar(props) {
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState(400);
 
-  const [openPaginationModal, setOpenPaginationModal] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
   // =FUNC=================================================
   
   useEffect(() => {
     setTotalRecords(ThousandFormat(totalRecords));
   }, [totalRecords]);
 
-  const onClickPaginationButton = () => {
-    setOpenPaginationModal(!openPaginationModal);
+  const onClickButtonHandler = () => {
+    setOpenModal(!openModal);
   };
 
   const ThousandFormat = (x, delimiter = ",") => {
@@ -50,7 +50,7 @@ function TitleBar(props) {
       {/* --2 PAGINATIONBOX ------------- */}
       <div
         className="pagination-box col-lg-6  p-0"
-        onClick={onClickPaginationButton}
+        onClick={onClickButtonHandler}
       >
         {/* --2.1 DESKTOP BOX ------------- */}
         <div className="sub-box desktop-box d-none d-lg-flex ">
@@ -113,7 +113,7 @@ function TitleBar(props) {
         </div>
         
         {/* --2.3 MODAL BOX ------------- */}
-        <div className="modal-box border d-none d-lg-none">
+        <div className={( !openModal ? "d-none" : "" ) +" modal-box border d-lg-none"}>
           <div className="limit-records-box">
             <span> Show </span>
             <span className="select-record-box">
