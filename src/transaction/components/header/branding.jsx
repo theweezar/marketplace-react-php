@@ -2,6 +2,7 @@
 import { useRef, useState } from "react";
 import { BsFillCaretDownFill } from "react-icons/bs";
 import { GoPrimitiveDot } from "react-icons/go";
+import { useOnClickOutside } from "../../../hooks/useOnClickOutside";
 // COMPONENTS
 
 /**
@@ -17,15 +18,16 @@ function Branding(props) {
   // =STATES=================================================
   const BRAND_NAME = props.brandName;
   const BRAND_BADGES = props.brandBadges;
-  const [openBadgeBox, setOpenBadgeBox] = useState(false);
+  const [openModalBox, setOpenModalBox] = useState(false);
   const node = useRef();
   // =FUNC=================================================
+  useOnClickOutside(node, () =>setOpenModalBox(false));
   const onClickBadgeButton = () => {
-    setOpenBadgeBox(!openBadgeBox);
+    setOpenModalBox(!openModalBox);
   };
 
   return (
-    <div className={props.thisClassName}>
+    <div className={props.thisClassName} ref={node}>
       {/* --1-BRANDING_LOGOBOX -------------- */}
       <div className="logobox">
         <svg
@@ -74,7 +76,7 @@ function Branding(props) {
       {/* --3-BRANDING_BADEGE_SELECT_BOX ------------ */}
       <div
         className={
-          (openBadgeBox ? "" : "d-none") +
+          (openModalBox ? "" : "d-none") +
           " select_box branding__badge_select_box border "
         }
       >

@@ -3,7 +3,6 @@ import React from "react";
 // Components
 import Branding from "./header/branding";
 import Navigator from "./header/navigator";
-import SelectBoxes from "./header/selectboxes";
 import Searcher from "./header/searcher";
 
 /**
@@ -97,7 +96,6 @@ const Header = (props) => {
       },
     ];
     
-    const SELECT_BOXES = NAVIGATION_ITEMS.filter((obj) => obj.options.length > 0);
 
   // 03.Searching Area
   const INPUT_PLACEHOLDER_TEXT = "Address, Txn Hash, Block, etc.";
@@ -119,9 +117,7 @@ const Header = (props) => {
         <Navigator
           thisClassName="navigation__area col-6 col-lg-7 text-end text-lg-left"
           navigationItems={NAVIGATION_ITEMS}
-        >
-          <SelectBoxes sboxes={SELECT_BOXES} thisClassName="select_box navigation__list_select_box border"/>
-        </Navigator>
+        />
 
         {/* --1.3-SEARCHER -------------------------------- */}
         <Searcher
