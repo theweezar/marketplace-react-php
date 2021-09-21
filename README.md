@@ -4,6 +4,8 @@
 - Dai Phan
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+__Notification will be linked Discord Web Hook.__
+
 ## Available Scripts
 In the project directory, you can run:
 #### Install all dependences after cloning this project
