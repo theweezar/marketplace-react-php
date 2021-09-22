@@ -4,7 +4,12 @@
 // For Component Transaction/DesktopTable
 // ==================================================
 .table__desktop {
+  position: relative;
+  height: 100%;
+
   .table__header {
+    position: sticky;
+    top: 0;
     padding: 0;
     margin: 0;
     border-radius: 10px;
@@ -22,10 +27,12 @@
         font-weight: bold;
         color: $list-item-text-color;
         margin: 0;
+
         &.icon {
           min-width: 40px;
           width: auto;
         }
+
         &.txhash {
           min-width: 140px;
           width: 13.07%;
@@ -73,36 +80,46 @@
       }
     }
   }
+
   .table__container {
+
     // COMMON
     a {
       text-decoration: none;
     }
+
     // SPECIFIC
     .table_item {
+
       &:hover,
       &.active {
         background-color: rgb(238, 244, 250);
       }
+
       border-bottom: 1px solid $line-color;
+
       .item_content {
         padding: 15px 0;
         font-weight: 400;
         font-size: 0.95em;
+
         &.icon {
           display: flex;
           align-items: center;
           justify-content: center;
+
           .icon {
             background-color: $mobile-box-bgcolor;
             padding: 5px;
             border-radius: 8px;
+
             svg {
               margin-top: -5px;
               fill: $subtitle-text-color;
             }
           }
         }
+
         &.txhash {
           .link {
             a {
@@ -114,6 +131,7 @@
             }
           }
         }
+
         // &.action{
 
         // }
@@ -125,21 +143,26 @@
             color: $time-text-color-desktop;
           }
         }
+
         &.status {
           .custom-badge {
             padding: 2.5px 8px;
             font-size: 0.7em;
             font-weight: 600;
             letter-spacing: 0.4px;
-            background-color: $success-color;
             color: #fff;
             border-radius: 8px;
             display: flex;
             width: fit-content;
             box-sizing: border-box;
             align-items: center;
+
+            &.success {
+              background-color: $success-color;
+            }
           }
         }
+
         &.from {
           a {
             span {
@@ -149,11 +172,13 @@
             }
           }
         }
+
         &.direct {
           svg {
             fill: $color-info;
           }
         }
+
         &.to {
           a {
             .img-box {
@@ -161,6 +186,7 @@
             }
           }
         }
+
         &.value {
           font-weight: 600;
           text-transform: uppercase;

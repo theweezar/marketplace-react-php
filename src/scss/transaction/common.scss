@@ -6,14 +6,39 @@
   background-color: $bgcolor-info !important;
   color: $color-info !important;
 }
+
 .bold {
   font-weight: bold;
 }
+
 // ==================================================
 // Function
 // ==================================================
 #root {
   position: relative;
+
+  ::-webkit-scrollbar-track
+  {
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar
+  {
+    width: 5px;
+    background-color: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb
+  {
+    border-radius: 5px;
+    background-image: -webkit-gradient(linear,
+                       left bottom,
+                       left top,
+                       color-stop(0.44, rgb(122,153,217)),
+                       color-stop(0.72, rgb(73,125,189)),
+                       color-stop(0.86, rgb(28,58,148)));
+  }
+  
 }
 
 .select_box {
@@ -31,6 +56,7 @@
     padding: 8px;
     width: 150%;
     max-width: 230px;
+
     .item {
       display: block;
       width: 100%;
@@ -45,13 +71,16 @@
 
       &:hover {
         background-color: #f0f5f8;
+
         a {
           text-decoration: underline $color-info;
         }
       }
+
       .custom-dot {
         padding: 10px;
         margin: 0;
+
         svg {
           stroke-width: 0.3px;
         }
@@ -69,6 +98,7 @@
     &#accounts-box {
       left: -50%;
     }
+
     &#tokens-box {
       right: -50%;
     }
@@ -87,11 +117,13 @@
       &:not(:first-child) {
         margin-top: 5px;
       }
+
       &:hover {
         background-color: $bgcolor-info;
         color: $color-info;
       }
     }
+
     .line {
       margin: 8px 0;
       height: 0.1px;

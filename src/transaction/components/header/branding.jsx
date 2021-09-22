@@ -69,7 +69,6 @@ function Branding(props) {
       <div className="branding__badge_box d-flex align-items-center">
         <div
           className="custom-badge background-info text-uppercase "
-          key={badge.keyid}
         >
           {badge.name}
         </div>
@@ -91,7 +90,7 @@ function Branding(props) {
         {BRAND_BADGES.map((item) => {
           if (item.keyid !== badge.keyid) {
             return (
-              <a className="item" href="#">
+              <a className="item" href="#" key={item.keyid}>
                 <span className="custom-dot">
                   <GoPrimitiveDot />
                 </span>

@@ -3,13 +3,15 @@ const read = () => {
       type: "READ",
     };
   };
-  const write = (data) => {
+  const write = ({keyid,name,route}) => {
     return {
       type: "WRITE",
-      
-    keyid: data.keyid,
-    name: data.name,
-    route: data.route
+      keyid,
+      name,
+      route,
+    // {keyid: data.keyid,
+    // name: data.name,
+    // route: data.route}
     };
   };
   
