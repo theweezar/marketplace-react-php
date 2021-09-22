@@ -91,14 +91,14 @@ function Branding(props) {
         {BRAND_BADGES.map((item) => {
           if (item.keyid !== badge.keyid) {
             return (
-              <div className="item">
+              <a className="item" href="#">
                 <span className="custom-dot">
                   <GoPrimitiveDot />
                 </span>
-                <a href="#" className="info">
+                <span className="info">
                   {BRAND_NAME} {item.name}
-                </a>
-              </div>
+                </span>
+              </a>
             );
           } else { return ""; }
         })}

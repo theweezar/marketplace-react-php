@@ -21,9 +21,9 @@ function SelectBox(props) {
         return <div className="line" key={item.keyid}></div>;
       } else {
         return (
-          <div className="item" key={item.keyid}>
-            <a href="#">{item.name}</a>
-          </div>
+          <a className="item" href="#" key={item.keyid}>
+            {item.name}
+          </a>
         );
       }
     })}

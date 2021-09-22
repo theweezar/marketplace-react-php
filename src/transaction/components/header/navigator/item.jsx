@@ -26,20 +26,20 @@ function NavigationItem(props) {
   };
   return (
     <div className="list-item-container" ref={node}>
-      <div
-        key={navigationItem.name}
+      <Link
+        to={navigationItem.route}
         className={navigationItem.active ? "list-item active" : "list-item"}
+        key={navigationItem.name}
         onClick={onClickHandler}
       >
-        <Link to={navigationItem.route}>{navigationItem.name}</Link>
+        <span>
+        {navigationItem.name}</span>
         {navigationItem.options.length === 0 ? (
           ""
         ) : (
-          <button className="btn p-0">
-            <BsFillCaretDownFill />
-          </button>
+            <BsFillCaretDownFill/>
         )}
-      </div>
+      </Link>
       {navigationItem.options.length > 0 && isModalOpen ? (
         type === "" ? (
           <SelectBox
