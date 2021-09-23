@@ -13,7 +13,7 @@ const DesktopTable = (props) => {
   return (
     <div className={props.thisClassName}>
       <table className="table__desktop">
-        <thead className="table__header">
+        <thead className="table__header animation popup">
           <tr className="header_list">
             <td className="header_item  icon"></td>
             <td className="header_item  txhash">tx hash</td>

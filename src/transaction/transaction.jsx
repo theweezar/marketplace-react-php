@@ -22,7 +22,7 @@ const Transaction = (props) => {
       {/* --1. TRANSACTION------------------------------*/}
       <div className="transaction container-fluid">
         {/* --1.1. TITLE------------------------------  */}
-        <TitleBar thisClassName="transaction__title_panel"
+        <TitleBar thisClassName="transaction__title_panel animation popup"
         title={TRANSACTION_TITLE}
         limitRecords={LIMIT_LASTEST_RECORDS}/>
         {/* --1.2. TABLE------------------------------  */}

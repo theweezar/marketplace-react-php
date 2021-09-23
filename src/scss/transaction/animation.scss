@@ -1,0 +1,13 @@
+.animation{
+    &.popup{
+        animation: popup .5s cubic-bezier(.22,.68,.83,.96) forwards;
+    }
+}
+@keyframes popup{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}

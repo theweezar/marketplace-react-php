@@ -14,7 +14,7 @@ function TableItem(props) {
   const txHashTextLimit = 12;
   const StatusTextLimit = 17;
   return type === "desktop" ? (
-    <tr className="table_item">
+    <tr className="table_item slide-to-left">
       <td className="item_content icon">
         <span className="icon">
           <Symbol />
@@ -74,7 +74,7 @@ function TableItem(props) {
       <td className="item_content value">{value} RON</td>
     </tr>
   ) : (
-    <div className="item">
+    <div className="item slide-from-right">
       {/* ID  */}
       <div className="field id">
         <span className="icon">

@@ -108,7 +108,7 @@ const Header = (props) => {
   // =FUNC=================================================
 
   return (
-    <header>
+    <header className="">
       {/* ---1-NAV ------------------------------------------------- */}
       <nav className="row py-2 py-lg-0 align-items-center ">
         {/* --1.1-BRANDING -------------------------------- */}

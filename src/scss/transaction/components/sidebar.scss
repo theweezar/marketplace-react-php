@@ -5,6 +5,50 @@
 // ==================================================
 $blur-bgcolor: rgba(16, 22, 26, .7);
 
+@keyframes show {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes hide {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes slidetoRight {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(200%);
+        opacity: 0;
+    }
+}
+
+@keyframes slidefromRight {
+    0% {
+        transform: translateX(200%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 .sidebar {
     position: fixed;
     top: 0;
@@ -15,13 +59,23 @@ $blur-bgcolor: rgba(16, 22, 26, .7);
     z-index: 2;
 
     .sidebar__blur_background {
+
         position: relative;
         width: 100%;
         height: 100%;
         background-color: $blur-bgcolor;
 
+        &.show {
+            animation: show .2s ease-in forwards;
+        }
+
+        &.hide {
+            animation: hide .2s .5s ease-out forwards;
+        }
+
         .overlay_sidebar_blur_background {
             position: absolute;
+            opacity: 0;
             top: 0;
             right: 0;
             width: 71.5vw;
@@ -29,6 +83,14 @@ $blur-bgcolor: rgba(16, 22, 26, .7);
             height: 100%;
             padding: 8px 20px;
             background-color: #fff;
+
+            &.slide-from-right {
+                animation: slidefromRight .5s .1s cubic-bezier(0, .66, .65, 1.03) forwards;
+            }
+            &.slide-to-right {
+                animation: slidetoRight .5s  cubic-bezier(.71,.01,.77,1) forwards;
+            }
+
 
             .sidebar__container {
                 height: 100%;
