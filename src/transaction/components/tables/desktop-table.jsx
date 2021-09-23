@@ -9,7 +9,7 @@ import TableItem from "./table-item";
  * @returns
  */
 const DesktopTable = (props) => {
-  const records = useSelector(state => state.table);
+  const records = useSelector(state => state.table.records);
   return (
     <div className={props.thisClassName}>
       <table className="table__desktop">

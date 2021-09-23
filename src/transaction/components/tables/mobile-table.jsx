@@ -9,13 +9,13 @@ import TableItem from "./table-item";
  * @returns
  */
 const MobileTable = (props) => {
-  const records = useSelector((state) => state.table);
+  const records = useSelector((state) => state.table.records);
   return (
     <div className={props.thisClassName}>
       {/* --1.1 ITEM ----------------  */}
       <div className="table__mobile">
         {records.map((record) => (
-          <TableItem record={record} key={record.txHash + "-mobile"} />
+          <TableItem record={record} key={record.txHash + "-mobile"} /> 
         ))}
       </div>
     </div>

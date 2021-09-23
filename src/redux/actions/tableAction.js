@@ -1,4 +1,4 @@
-function makeRandomString(startStr, length, isOnlyNumber) {
+const makeRandomString = (startStr, length, isOnlyNumber) => {
   let charSet = isOnlyNumber
     ? "0123456789"
     : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -9,8 +9,8 @@ function makeRandomString(startStr, length, isOnlyNumber) {
     randomString += charSet.substring(randomPosition, randomPosition + 1);
   }
   return startStr + randomString;
-}
-function generateItem() {
+};
+const generateItem = () => {
   let modal = {
     txHash: makeRandomString("0x", 18).toLowerCase(),
     action: "Buy Axie",
@@ -22,35 +22,34 @@ function generateItem() {
     value: Math.floor(Math.random() * 100 - 1),
   };
   return modal;
-}
-function generateArrayofItems(numberofItem) {
+};
+const generateArrayofItems = ( numberofRecords ) => {
   let records = [];
-  for (let i = 0; i < numberofItem; i++) {
+  for (let i = 0; i < numberofRecords; i++) {
     records.push(generateItem());
   }
   return records;
+};
+
+const calcNumberofPage = ( numberofRecords, perPage ) => {
+  return perPage === 0 ? 0 : Math.ceil(numberofRecords / perPage);
 }
 
 const read = () => {
   return {
-    type: "READ",
+    type: "READ_TABLE",
   };
 };
 const write = (data) => {
   return {
-    type: "WRITE",
+    type: "WRITE_TABLE",
     data: data,
   };
 };
-const generate = (n) => {
-    return {
-      type: "WRITE",
-      data: generateArrayofItems(n),
-    };
-  };
 
 export default {
   read: read,
   write: write,
-  generate: generate
+  generate: generateArrayofItems,
+  calcNoP : calcNumberofPage,
 };
