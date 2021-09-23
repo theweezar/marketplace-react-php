@@ -1,5 +1,5 @@
 
-export function setSideBarAction(currentState) {
+export function setActionTypeString(currentState) {
     return {
         type: currentState
     };

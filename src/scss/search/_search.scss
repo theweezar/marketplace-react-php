@@ -1,5 +1,27 @@
 .main-content-wrapper {
     position: relative;
+
+    .search-result-container {
+        padding: 0;
+        position: relative;
+
+        @include media-breakpoint-up(md) {
+            order: 2;
+    
+            @include flex(calc(100% - 280px))
+        }
+    }
+
+    .filter-container {
+        padding: 0;
+        position: relative;
+
+        @include media-breakpoint-up(md) {
+            order: 1;
+    
+            @include flex(280px);
+        }
+    }
 }
 
 .filter-wrapper,
@@ -8,19 +30,16 @@
     background-color: $color-gray-5;
     overflow-y: scroll;
     padding: 12px 8px;
+    position: relative;
 
     @include media-breakpoint-up(md) {
         @include custom-scroll-bar();
     }
-    
 }
 
 .search-result-wrapper {
     @include media-breakpoint-up(md) {
-        order: 2;
         padding: 24px 32px;
-
-        @include flex(calc(100% - 280px))
     }
 
     .sort-price {

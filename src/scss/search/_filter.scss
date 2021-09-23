@@ -3,11 +3,8 @@
 
     @include media-breakpoint-up(md) {
         position: inherit;
-        order: 1;
         padding: 20px;
         border-right: 1px solid $color-gray-3;
-        
-        @include flex(280px);
     }
 
     .filter-title {

@@ -14,7 +14,7 @@ import { RightSideBar } from "./RightSideBar";
 import { ListViewColumnAbsolute, Item } from '../components/List';
 import { useOnClickOutside } from '../components/Input';
 
-import { setSideBarAction } from '../scripts/redux/actions/mainAction';
+import { setActionTypeString } from '../scripts/redux/actions/mainAction';
 import properties from '../properties.json';
 
 import logo from '../static/images/logo.png';
@@ -35,7 +35,11 @@ export function MarketplaceHeader({...props}) {
     const dispatch = useDispatch();
     const ref = useRef();
     const isSideBarOpen = useSelector(state => state.isSideBarOpen);
-    useOnClickOutside(ref, () => dispatch(setSideBarAction(properties.SIDEBAR_CLOSE)));
+    
+    const filterOpenHandle = () => {
+        dispatch(setActionTypeString(properties.FILTER_OPEN));
+    }
+    useOnClickOutside(ref, () => dispatch(setActionTypeString(properties.SIDEBAR_CLOSE)));
 
     return (
         <div className="header-wrapper">
@@ -72,7 +76,7 @@ export function MarketplaceHeader({...props}) {
                     </Button3E>
                 </Link>
                 <div className="hambuger-menu ml-auto d-flex align-items-center d-md-none">
-                    <GiHamburgerMenu onClick={() => dispatch(setSideBarAction(properties.SIDEBAR_OPEN))}/>
+                    <GiHamburgerMenu onClick={() => dispatch(setActionTypeString(properties.SIDEBAR_OPEN))}/>
                 </div>
             </div>
             <div className="navigator-cat d-flex justify-between">
@@ -96,7 +100,7 @@ export function MarketplaceHeader({...props}) {
                         })}
                     </ListViewColumnAbsolute>
                 </div>
-                <Button className="btn-filter d-block d-md-none">
+                <Button className="btn-filter d-block d-md-none" onClick={filterOpenHandle}>
                     Filter
                 </Button>
                 <div className="d-none d-md-flex category-link-wrapper-pc">

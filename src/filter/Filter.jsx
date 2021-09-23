@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { GiChaingun } from "react-icons/gi";
 
 import { Button } from "../components/Button";
@@ -27,6 +28,7 @@ function FilterTab({...props}) {
 }
 
 export function Filter() {
+    const isFilterOpen = useSelector(state => state.isFilterOpen);
     const loopCheckbox = (length) => {
         var array = Array(length).fill(undefined);
         return array.map(() => {

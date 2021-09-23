@@ -9,11 +9,22 @@ const isSideBarOpenReducer = (state = false, action) => {
         default:
             return false;
     }
-    // return typeof action.type === 'boolean' ? action.type : false;
 };
 
+const isFilterOpenReducer = (state = false, action) => {
+    switch (action.type) {
+        case 'FILTER_OPEN':
+            return true;
+        case 'FILTER_CLOSE':
+            return false;
+        default:
+            return false;
+    }
+}
+
 const allReducers = combineReducers({
-    isSideBarOpen: isSideBarOpenReducer
+    isSideBarOpen: isSideBarOpenReducer,
+    isFilterOpen: isFilterOpenReducer
 });
 
 export default allReducers;
