@@ -48,13 +48,15 @@ export function useOnClickOutside(ref, handler) {
                 if (!ref.current || ref.current.contains(event.target)) {
                     return;
                 }
+                console.log(ref);    
                 handler();
             };
             document.addEventListener("mousedown", listener);
-            document.addEventListener("touchstart", listener);
+            // document.addEventListener("touchstart", listener);
+            // return clean up function below
             return () => {
                 document.removeEventListener("mousedown", listener);
-                document.removeEventListener("touchstart", listener);
+                // document.removeEventListener("touchstart", listener);
             };
         },
         [ref, handler]

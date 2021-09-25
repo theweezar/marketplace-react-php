@@ -45,7 +45,7 @@ export function Filter() {
     }
 
     return (
-        <div className="filter-wrapper col-12 text-white d-none d-md-block">
+        <div className={"filter-wrapper col-12 text-white d-md-block " + (!isFilterOpen ? "d-none" : "")}>
             <div className="d-flex justify-between">
                 <div className="filter-title">
                     Filter (0)

@@ -14,7 +14,6 @@
 
     .filter-container {
         padding: 0;
-        position: relative;
 
         @include media-breakpoint-up(md) {
             order: 1;
@@ -154,22 +153,22 @@
                     max-width: 97%;
                 }
 
-                .col-6 {
-                    padding: 0 4px;
-                }
-
                 .product-tile {
                     margin: 4px 0px;
+                    padding: 0 4px;
+                    @include flex(50%);
     
                     // Tablet
                     @include media-breakpoint-up(md) {
                         margin: 8px 0px;
                         padding: 0 8px;
                     }
+
                     // Table Ipad Pro
                     @include media-breakpoint-up(lg) {
                         @include flex(33.33%);
                     }
+
                     // Desktop
                     @include media-breakpoint-up(xl) {
                         @include flex(24%);

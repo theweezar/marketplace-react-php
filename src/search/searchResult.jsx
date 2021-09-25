@@ -4,12 +4,8 @@ import { FaList } from 'react-icons/fa';
 
 import { Button } from '../components/Button';
 import { DropDownMenu3E } from '../components/Input';
-import { ProductList } from './ProductList';
+import { ProductList } from './product/ProductList';
 import { Pagination } from './Pagination';
-import { Image } from '../components/IconImage';
-
-import Spinner from '../static/images/spinner.svg';
-
 
 function SortPrice() {
     const optionsSortPrice = [

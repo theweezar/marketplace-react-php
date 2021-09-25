@@ -35,15 +35,17 @@ export function MarketplaceHeader({...props}) {
     const dispatch = useDispatch();
     const ref = useRef();
     const isSideBarOpen = useSelector(state => state.isSideBarOpen);
+    const isFilterOpen = useSelector(state => state.isFilterOpen);
     
     const filterOpenHandle = () => {
-        dispatch(setActionTypeString(properties.FILTER_OPEN));
-    }
+        !isFilterOpen ? dispatch(setActionTypeString(properties.FILTER_OPEN)) : dispatch(setActionTypeString(properties.FILTER_CLOSE));
+    };
+
     useOnClickOutside(ref, () => dispatch(setActionTypeString(properties.SIDEBAR_CLOSE)));
 
     return (
         <div className="header-wrapper">
-            <div ref={ref}>
+            <div className="right-side-bar-container" ref={ref}>
                 <RightSideBar className={(isSideBarOpen ? "expand":"")}/>
             </div>
             <div className="navigator-page d-flex w-100">

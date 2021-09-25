@@ -7,7 +7,7 @@ const isSideBarOpenReducer = (state = false, action) => {
         case 'SIDEBAR_CLOSE':
             return false;
         default:
-            return false;
+            return state;
     }
 };
 
@@ -18,7 +18,7 @@ const isFilterOpenReducer = (state = false, action) => {
         case 'FILTER_CLOSE':
             return false;
         default:
-            return false;
+            return state;
     }
 }
 

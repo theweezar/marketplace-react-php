@@ -1,5 +1,6 @@
 .filter-wrapper {
     position: absolute;
+    top: 0;
 
     @include media-breakpoint-up(md) {
         position: inherit;
