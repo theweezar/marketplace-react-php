@@ -1,6 +1,8 @@
 export function Image(props) {
+    const width = props.width || '100%';
+    const height = props.height || 'auto';
     return (
-        <img alt="icon24" className={props.className} srcSet={props.src} width="100%" height="auto" />
+        <img alt="icon24" className={props.className} srcSet={props.src} width={width} height={height} />
     )
 }
 

@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { BiDownArrow } from 'react-icons/bi';
 import { BiLogIn } from 'react-icons/bi';
 import { RiDashboardFill } from 'react-icons/ri';
 import { CgMenuGridR } from 'react-icons/cg';
@@ -11,10 +10,9 @@ import { AiTwotoneShop, AiFillCaretDown } from 'react-icons/ai';
 import { Button, Button3E } from '../components/Button';
 import { IconImage24 } from '../components/IconImage';
 import { RightSideBar } from "./RightSideBar";
-import { ListViewColumnAbsolute, Item } from '../components/List';
-import { useOnClickOutside } from '../components/Input';
+import { useOnClickOutside, DropDownMenu3E } from '../components/Input';
 
-import { setActionTypeString } from '../scripts/redux/actions/mainAction';
+import { setActionTypeDefault } from '../scripts/redux/actions/mainAction';
 import properties from '../properties.json';
 
 import logo from '../static/images/logo.png';
@@ -23,12 +21,21 @@ import tabLand from '../static/images/tab-land.png';
 import tabItem from '../static/images/tab-item.png';
 import tabBundle from '../static/images/tab-bundle.png';
 
+function CategoryTabDropdown({...props}) {
+    const categories = props.categories;
+    const index = 0;
+    return (
+        <DropDownMenu3E className="category-link-wrapper-mo d-block d-md-none" index={index} 
+        options={categories} name="category-link-wrapper-mo" />
+    )
+}
+
 export function MarketplaceHeader({...props}) {
-    const options = [
-        { id: Math.random().toString(36).substr(2, 9), value: 'Axies', startIcon: <IconImage24 src={tabAxie}/> },
-        { id: Math.random().toString(36).substr(2, 9), value: 'Lands', startIcon: <IconImage24 src={tabLand}/> },
-        { id: Math.random().toString(36).substr(2, 9), value: 'Items', startIcon: <IconImage24 src={tabItem}/> },
-        { id: Math.random().toString(36).substr(2, 9), value: 'Bundles', startIcon: <IconImage24 src={tabBundle}/> },
+    const categories = [
+        { id: Math.random().toString(36).substr(2, 9), value: 'Axies', start: <IconImage24 src={tabAxie}/> },
+        { id: Math.random().toString(36).substr(2, 9), value: 'Lands', start: <IconImage24 src={tabLand}/> },
+        { id: Math.random().toString(36).substr(2, 9), value: 'Items', start: <IconImage24 src={tabItem}/> },
+        { id: Math.random().toString(36).substr(2, 9), value: 'Bundles', start: <IconImage24 src={tabBundle}/> },
     ];
 
     const [selected, setSelected] = useState(0);
@@ -38,10 +45,10 @@ export function MarketplaceHeader({...props}) {
     const isFilterOpen = useSelector(state => state.isFilterOpen);
     
     const filterOpenHandle = () => {
-        !isFilterOpen ? dispatch(setActionTypeString(properties.FILTER_OPEN)) : dispatch(setActionTypeString(properties.FILTER_CLOSE));
+        !isFilterOpen ? dispatch(setActionTypeDefault(properties.FILTER_OPEN)) : dispatch(setActionTypeDefault(properties.FILTER_CLOSE));
     };
 
-    useOnClickOutside(ref, () => dispatch(setActionTypeString(properties.SIDEBAR_CLOSE)));
+    useOnClickOutside(ref, () => dispatch(setActionTypeDefault(properties.SIDEBAR_CLOSE)));
 
     return (
         <div className="header-wrapper">
@@ -78,41 +85,22 @@ export function MarketplaceHeader({...props}) {
                     </Button3E>
                 </Link>
                 <div className="hambuger-menu ml-auto d-flex align-items-center d-md-none">
-                    <GiHamburgerMenu onClick={() => dispatch(setActionTypeString(properties.SIDEBAR_OPEN))}/>
+                    <GiHamburgerMenu onClick={() => dispatch(setActionTypeDefault(properties.SIDEBAR_OPEN))}/>
                 </div>
             </div>
             <div className="navigator-cat d-flex justify-between">
-                <div className="category-link-wrapper-mo d-block d-md-none">
-                    <Button3E className="btn-dropdown">
-                        {options[selected].startIcon}
-                        <span>{options[selected].value}</span>
-                        <BiDownArrow/>
-                    </Button3E>
-                    <ListViewColumnAbsolute className="list-category d-none">
-                        {options.map((option, index) => {
-                            return (
-                                <Item key={option.id}>
-                                    <Button3E className="item-category" onClick={() => setSelected(index)}>
-                                        {option.startIcon}
-                                        <span>{option.value}</span>
-                                        <></>
-                                    </Button3E>
-                                </Item>     
-                            );
-                        })}
-                    </ListViewColumnAbsolute>
-                </div>
+                <CategoryTabDropdown categories={categories}/>
                 <Button className="btn-filter d-block d-md-none" onClick={filterOpenHandle}>
                     Filter
                 </Button>
                 <div className="d-none d-md-flex category-link-wrapper-pc">
-                    {options.map((option, index) => {
+                    {categories.map((category, index) => {
                         return (
                             <Link to="/" key={index} className="d-flex align-items-center"
                             onClick={(e) => {e.preventDefault();setSelected(index)}}>
                                 <Button3E className={"btn-cat " + (selected === index ? "active" : "")}>
-                                    {option.startIcon}
-                                    <span>{option.value}</span>
+                                    {category.start}
+                                    <span>{category.value}</span>
                                 </Button3E>
                                 <div className={"bottom-bar " + (selected === index ? "active" : "")}></div>
                             </Link>

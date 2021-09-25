@@ -1,4 +1,5 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { useDetectClickOutside } from 'react-detect-click-outside';
 import { FaCheck, FaCircle, FaAngleDown } from 'react-icons/fa';
 
 import { Button3E } from '../components/Button';
@@ -22,13 +23,44 @@ export function CheckBox({...props}) {
     );
 }
 
+// https://opensource.appbase.io/reactive-manual/range-components/rangeslider.html
 export function SliderTrack({...props}) {
     props.className = "slider-tracking-wrapper-df position-relative " + (props.className || "");
+    const ref = useRef();
+    const [touched, setTouched] = useState(false);
+    const [mouseCoor, setMouseCoor] = useState({x: 0, y: 0});
+    const [leftTracker, setLeftTracker] = useState(0);
+
+    const onMouseDown = (e) => {
+        setTouched(true);
+        setMouseCoor({
+            x: e.clientX,
+            y: e.clientY
+        });
+        console.log(ref.current ? ref.current.offsetWidth:0);
+        console.log(ref);
+    }
+
+    const onMouseUp = (e) => {
+        setTouched(false);
+        console.log(mouseCoor);
+    }
+
+    const onMouseMove = (e) => {
+        if (touched) {
+            if (leftTracker >= 0) {
+                setLeftTracker(e.clientX - mouseCoor.x);
+            } else if (leftTracker < 0) {
+                setLeftTracker(0);
+            }
+        }
+    }
 
     return (
         <div {...props}>
-            <div className="tracking-bar w-100 rounded-lg">
-                <div className="tracking-start-pointer">
+            <div className="tracking-bar w-100 rounded-lg pointer" onMouseDown={onMouseDown} ref={ref}
+            onMouseUp={onMouseUp} onMouseMove={onMouseMove}>
+                <div className="tracking-start-pointer" style={{left: leftTracker + 'px'}}>
                     <FaCircle/>
                     <div className="text-center tracking-flag">1</div>
                 </div>
@@ -48,15 +80,14 @@ export function useOnClickOutside(ref, handler) {
                 if (!ref.current || ref.current.contains(event.target)) {
                     return;
                 }
-                console.log(ref);    
                 handler();
             };
             document.addEventListener("mousedown", listener);
-            // document.addEventListener("touchstart", listener);
+            document.addEventListener("touchstart", listener);
             // return clean up function below
             return () => {
                 document.removeEventListener("mousedown", listener);
-                // document.removeEventListener("touchstart", listener);
+                document.removeEventListener("touchstart", listener);
             };
         },
         [ref, handler]
@@ -68,13 +99,14 @@ export function DropDownMenu3E({...props}) {
     
     const [selectedIndex, setSelectedIndex] = useState(props.index || 0);
     const [dropDown, setDropDown] = useState(false)
-    const ref = useRef();
-    
-    useOnClickOutside(ref, () => setDropDown(false));
+
+    const ref = useDetectClickOutside({
+        onTriggered: () => setDropDown(false)
+    });
 
     return (
         <div className={props.className} ref={ref}>
-            <Button3E className="btn-selected w-100" onClick={() => setDropDown(!dropDown)}>
+            <Button3E className="btn-selected" onClick={() => setDropDown(!dropDown)}>
                 {options[selectedIndex].start}
                 {options[selectedIndex].value}
                 <FaAngleDown />
@@ -87,7 +119,7 @@ export function DropDownMenu3E({...props}) {
                                 setSelectedIndex(index);
                                 setDropDown(false);
                             }}>
-                                <></>
+                                {option.start}
                                 <span>{option.value}</span>
                                 <></>
                             </Button3E>

@@ -2,3 +2,22 @@
 @import './layout/veil';
 @import './layout/rightSidebar';
 @import './layout/footer';
+
+.btn-customer-service-wrapper {
+    position: absolute;
+    bottom: 2rem;
+    right: 1.5rem;
+
+    @include media-breakpoint-up(md) {
+        right: 2rem;
+    }
+
+    .btn-customer-service {
+        color: white;
+        background: linear-gradient(256.28deg, #1C94F4 0%, #1273EA 100%);
+        filter: drop-shadow(0px 0px 12px rgba(26, 142, 242, 0.5));
+        border-radius: 9999px;
+        width: 40px;
+        height: 40px;
+    }
+}

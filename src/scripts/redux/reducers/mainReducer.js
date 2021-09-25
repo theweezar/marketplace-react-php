@@ -22,9 +22,17 @@ const isFilterOpenReducer = (state = false, action) => {
     }
 }
 
+const displayProductTileReducer = (state = 1, action) => {
+    if (typeof action.type === 'object' && Number.isInteger(action.type.display)) {
+        state = action.type.display;
+    }
+    return state;
+}
+
 const allReducers = combineReducers({
     isSideBarOpen: isSideBarOpenReducer,
-    isFilterOpen: isFilterOpenReducer
+    isFilterOpen: isFilterOpenReducer,
+    displayProductTile: displayProductTileReducer
 });
 
 export default allReducers;

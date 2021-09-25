@@ -1,4 +1,5 @@
-import { ProductTile } from './ProductTile';
+import { useSelector } from 'react-redux';
+import { ProductTile, ProductTileExpand } from './ProductTile';
 import axieFullTransparent1 from '../../static/images/axie-full-transparent_1.png';
 import axieFullTransparent2 from '../../static/images/axie-full-transparent_2.png';
 import axieFullTransparent3 from '../../static/images/axie-full-transparent_3.png';
@@ -15,13 +16,24 @@ export function ProductList() {
             price: '$4.78'
         };
     });
+    const displayProductTile = useSelector(state => state.displayProductTile);
+
     return (
         <div className="row product-tile-container justify-content-center">
-            <div className="product-tile-list row justify-content-center">
-                {productTiles.map(((producTile, index) => {
-                    return (
-                        <ProductTile dict={producTile} key={producTile.id}/>
-                    );
+            <div className={"product-tile-list row justify-content-center " + (displayProductTile === 2 ? "mw-100":"")}>
+                {productTiles.map(((productTile, index) => {
+                    switch (displayProductTile) {
+                        case 1:
+                            return (
+                                <ProductTile dict={productTile} key={productTile.id}/>
+                            )
+                        case 2:
+                            return (
+                                <ProductTileExpand dict={productTile} key={productTile.id}/>
+                            )
+                        default:
+                            return <></>;
+                    }
                 }))}
             </div>
         </div>

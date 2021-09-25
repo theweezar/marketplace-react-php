@@ -127,7 +127,7 @@
         }
 
         .product-tile-container {
-            margin-top: 24px;
+            margin: 24px -4px 0 -4px;
 
             @include media-breakpoint-up(md) {
                 margin-right: 0;
@@ -135,7 +135,7 @@
             }
 
             .product-tile-list {
-                padding: 0 8px;
+                padding: 0;
 
                 @include media-breakpoint-up(lg) {
                     max-width: 90%;
@@ -218,9 +218,56 @@
                                 font-size: 16px;
                                 text-align: center;
                                 padding-bottom: 16px;
+                                color: $color-gray-1;
 
                                 @include media-breakpoint-up(md) {
                                     padding-bottom: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .product-tile {
+                    &.expand {
+                        @include flex(100%);
+
+                        .card-body {
+                            margin: 0;
+                            padding: 0;
+
+                            .image-container {
+                                padding: 0;
+                            }
+
+                            .product-info {
+                                padding: 16px 0;
+
+                                .product-name {
+                                    margin: 4px 0 0;
+                                }
+
+                                .price-container {
+                                    text-align: left;
+                                }
+                            }
+
+                            .attribute-info {
+                                padding: 0 8px;
+
+                                .attribute-wrapper {
+                                    padding: 0;
+                                    margin-bottom: 16px;
+
+                                    @include media-breakpoint-up(xl) {
+                                        margin-bottom: 8px;
+                                    }
+                                }
+                            }
+
+                            .price-pc {
+                                .price-container {
+                                    font-size: 20px;
                                 }
                             }
                         }

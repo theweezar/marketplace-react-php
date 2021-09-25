@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { CgMenuGridR } from 'react-icons/cg'
 import { FaList } from 'react-icons/fa';
 
@@ -7,13 +8,15 @@ import { DropDownMenu3E } from '../components/Input';
 import { ProductList } from './product/ProductList';
 import { Pagination } from './Pagination';
 
+import { setActionTypeDefault } from '../scripts/redux/actions/mainAction';
+
 function SortPrice() {
     const optionsSortPrice = [
-        { id: Math.random().toString(36).substr(2, 9), value: 'Lowest Price', start: <></>},
-        { id: Math.random().toString(36).substr(2, 9), value: 'Lowest ID', start: <></>},
-        { id: Math.random().toString(36).substr(2, 9), value: 'Highest ID', start: <></>},
-        { id: Math.random().toString(36).substr(2, 9), value: 'Highest Price', start: <></>},
-        { id: Math.random().toString(36).substr(2, 9), value: 'Latest', start: <></>}
+        { id: Math.random().toString(36).substr(2, 9), value: 'Lowest Price'},
+        { id: Math.random().toString(36).substr(2, 9), value: 'Lowest ID'},
+        { id: Math.random().toString(36).substr(2, 9), value: 'Highest ID'},
+        { id: Math.random().toString(36).substr(2, 9), value: 'Highest Price'},
+        { id: Math.random().toString(36).substr(2, 9), value: 'Latest'}
     ];
 
     const index = 0;
@@ -25,12 +28,19 @@ function SortPrice() {
 
 function DisplayTile() {
     const [display, setDisplay] = useState(1);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(setActionTypeDefault({display: display}));
+        return;
+    }, [display, dispatch]);
+    
     return (
         <div className="display-tile d-flex">
             <Button className={"d-flex align-items-center " + (display === 1 ? 'active' : '')} onClick={() => setDisplay(1)}>
                 <CgMenuGridR/>
             </Button>
-            <Button className={"d-flex align-items-center " + (display === 0 ? 'active' : '')} onClick={() => setDisplay(0)}>
+            <Button className={"d-flex align-items-center " + (display === 2 ? 'active' : '')} onClick={() => setDisplay(2)}>
                 <FaList/>
             </Button>
         </div>
