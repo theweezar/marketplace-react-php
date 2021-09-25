@@ -1,4 +1,3 @@
-
 export function Item({...props}) {
     props.className = 'nav-item ' + (props.className || '');
     return (
@@ -21,6 +20,7 @@ export function ListViewColumn({...props}) {
 
 export function ListViewColumnAbsolute({...props}) {
     props.className = 'position-relative listview-container ' + (props.className || '');
+
     return (
         <div {...props}>
             <div className='position-absolute w-100 z-1'>

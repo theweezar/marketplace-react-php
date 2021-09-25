@@ -38,7 +38,7 @@ export function RightSideBar({...props}) {
                     </Link>
                 </Item>
                 <Item>
-                    <Link to="/asd">
+                    <Link to="/login">
                         <Button3E className="btn-login">
                             <BiLogIn />
                             <span>Login</span>

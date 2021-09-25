@@ -104,6 +104,8 @@ export function DropDownMenu3E({...props}) {
         onTriggered: () => setDropDown(false)
     });
 
+    console.log(ListViewColumnAbsolute.Hello);
+
     return (
         <div className={props.className} ref={ref}>
             <Button3E className="btn-selected" onClick={() => setDropDown(!dropDown)}>
