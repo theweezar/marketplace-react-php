@@ -1,5 +1,5 @@
 // Dependencies
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { IoClose } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -115,25 +115,27 @@ const Sidebar = (props) => {
   const nodeChild = useRef();
   // =FUNC=================================================
   useOnClickOutside(node, () => {
-    if (isSidebarOpen) dispatch(sidebarAction.hide());
+    if (isSidebarOpen) hideSidebar(700);
   });
   const onClickHandler = () => {
-    let delayInMilliseconds = 700;
-    nodeParrent.current.className = "sidebar__blur_background hide";
+    hideSidebar(700);
+  };
+  const hideSidebar =( delayInMilliseconds )=>{
+    nodeParrent.current.className = "sidebar__blur_background animation hide";
     nodeChild.current.className =
-      "overlay_sidebar_blur_background slide-to-right";
+      "overlay_sidebar_blur_background animation slide-to-right-side-bar ";
     setTimeout(() => {
       dispatch(sidebarAction.hide());
-      nodeParrent.current.className = "sidebar__blur_background show";
+      nodeParrent.current.className = "sidebar__blur_background animation show";
       nodeChild.current.className =
-        "overlay_sidebar_blur_background slide-from-right";
+        "overlay_sidebar_blur_background animation slide-from-right-side-bar";
     }, delayInMilliseconds);
-  };
+  }
   return (
     <div className={"sidebar d-lg-none " + (!isSidebarOpen ? "d-none" : "")}>
-      <div className="sidebar__blur_background show " ref={nodeParrent}>
+      <div className="sidebar__blur_background animation show " ref={nodeParrent}>
         <div
-          className="overlay_sidebar_blur_background slide-from-right "
+          className="overlay_sidebar_blur_background animation slide-from-right "
           ref={nodeChild}
         >
           <div className="sidebar__container" ref={node}>

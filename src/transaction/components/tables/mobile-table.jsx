@@ -10,12 +10,13 @@ import TableItem from "./table-item";
  */
 const MobileTable = (props) => {
   const records = useSelector((state) => state.table.records);
+  const animationClass = props.animationClass;
   return (
     <div className={props.thisClassName}>
       {/* --1.1 ITEM ----------------  */}
       <div className="table__mobile">
         {records.map((record) => (
-          <TableItem record={record} key={record.txHash + "-mobile"} /> 
+          <TableItem record={record} key={record.txHash + "-mobile"} animationClass={animationClass} /> 
         ))}
       </div>
     </div>

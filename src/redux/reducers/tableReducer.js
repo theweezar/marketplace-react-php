@@ -15,7 +15,7 @@ export const table = (state = defaultTableValue, action) => {
     case "READ_TABLE":
     case "read_table":
     case "all_table":
-      return state;
+      return state; 
     case "WRITE_TABLE":
     case "write_table":
       return state;

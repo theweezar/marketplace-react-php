@@ -10,6 +10,7 @@ import TableItem from "./table-item";
  */
 const DesktopTable = (props) => {
   const records = useSelector(state => state.table.records);
+  const animationClass = props.animationClass;
   return (
     <div className={props.thisClassName}>
       <table className="table__desktop">
@@ -29,7 +30,7 @@ const DesktopTable = (props) => {
         </thead>
         <tbody className="table__container">
           {records.map((record) => (
-            <TableItem type="desktop" record={record} key={record.txHash}/>
+            <TableItem type="desktop" record={record} key={record.txHash} animationClass={animationClass}/>
           ))}
         </tbody>
       </table>

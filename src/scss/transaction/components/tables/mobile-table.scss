@@ -2,30 +2,10 @@
 // ==================================================
 // For Component Transaction/MobileTable
 // ==================================================
-@keyframes slidetoLeft {
-    0% {
-        transform: translateX(200%);
-        opacity: 1;
-    }
 
-    100% {
-        transform: translateX(0);
-        opacity: 0;
-    }
-}
 .table__mobile {
-
     .item {
-        &.slide-from-right {
-            opacity: 0;
-            animation: slidefromRight .5s cubic-bezier(0, .66, .65, 1.03) forwards;
-            animation-delay: .5s;
-            @for $i from 1 through 10 {
-                &:nth-child(#{$i}) {
-                    animation-delay: #{$i * ( 0.2 - $i*0.005 )}s;
-                }
-            }
-        }
+        
         padding-left: 10px;
         padding-bottom: 6px;
         border-bottom: 1px solid $line-color;

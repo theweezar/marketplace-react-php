@@ -13,8 +13,9 @@ function TableItem(props) {
   };
   const txHashTextLimit = 12;
   const StatusTextLimit = 17;
+  const animationClass = props.animationClass;
   return type === "desktop" ? (
-    <tr className="table_item slide-to-left">
+    <tr className={"table_item " + (animationClass ? "animation "+animationClass : "" )}>
       <td className="item_content icon">
         <span className="icon">
           <Symbol />
@@ -74,7 +75,7 @@ function TableItem(props) {
       <td className="item_content value">{value} RON</td>
     </tr>
   ) : (
-    <div className="item slide-from-right">
+    <div className={"item "+ (animationClass ? "animation "+animationClass : "" )}>
       {/* ID  */}
       <div className="field id">
         <span className="icon">

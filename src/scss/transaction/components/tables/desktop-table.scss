@@ -100,18 +100,6 @@
         background-color: rgb(238, 244, 250);
       }
       border-bottom: 1px solid $line-color;
-    
-      &.slide-to-left {
-        opacity: 0;
-        animation: slidefromRight .5s cubic-bezier(0, .66, .65, 1.03) forwards;
-        animation-delay: .5s;
-
-        @for $i from 1 through 20 {
-          &:nth-child(#{$i}) {
-            animation-delay: #{$i * ( 0.2 - $i*0.005 )}s;
-          }
-        }
-      }
 
       .item_content {
         padding: 15px 0;
