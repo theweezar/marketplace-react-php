@@ -1,1 +1,18 @@
-@import './components/component';
+// @import './components/component';
+@import './components/header';
+@import './components/sidebar';
+@import './components/footer';
+@import './variables';
+@import './common';
+
+
+.transaction {
+    padding: 0;
+    margin: 20px 0 50px 0;
+
+    // ------ 01 TITLE ----------------
+    @import './components/titlebar';
+
+    // ------ 02 TABLE ----------------
+    @import './components/table';
+}

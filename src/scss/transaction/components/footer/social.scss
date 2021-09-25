@@ -1,0 +1,41 @@
+@import '../../variables';
+// ==================================================
+// For Component Footer/Social
+// ==================================================
+.footer__social_area {
+    border-top: 1px solid $border-color;
+    padding: 0;
+    margin:0;
+    @include media-breakpoint-up( lg ){
+        border-top: none;  
+    }
+    .list{
+        display: flex;
+        align-items: center;
+        padding: 0;
+        padding-top: 20px;
+        margin: 0;
+        @include media-breakpoint-up( lg ){
+            padding-top: 0;  
+        }
+        .social{
+            margin: 0 12px;
+            &:first-child{
+                margin-left: 0;   
+            }
+            &:last-child{
+                margin-right: 0;
+            }
+            &:hover{
+                svg{
+                    fill: $hover-color
+                }
+            }
+            svg{
+                font-size: 28px;
+                padding: 0;
+                fill: $sponsor-color;
+            } 
+        }
+    }
+}

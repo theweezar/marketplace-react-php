@@ -1,0 +1,113 @@
+@import '../../variables.scss';
+// ==================================================
+// For Component Transaction/MobileTable
+// ==================================================
+
+.table__mobile {
+    .item {
+        
+        padding-left: 10px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid $line-color;
+
+        .field {
+            display: flex;
+            align-items: center;
+            font-size: .95em;
+            font-weight: 400;
+            margin-bottom: 10px;
+
+            label {
+                min-width: 115px;
+                max-width: 200px;
+                font-size: .65em;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: $list-item-text-color;
+            }
+
+            .value {
+                font-size: 1em;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            &.id {
+                .icon {
+                    background-color: $mobile-box-bgcolor;
+                    padding: 5px;
+                    border-radius: 8px;
+                    margin-right: 8px;
+
+                    svg {
+                        margin-top: -5px;
+                        fill: $subtitle-text-color;
+                    }
+                }
+
+                .link {
+                    a {
+                        font-size: .98em;
+
+                        span {
+                            margin-right: 5px;
+                        }
+                    }
+                }
+
+                .time {
+                    color: $time-text-color;
+                    font-size: .9em;
+                }
+            }
+
+            &.action {
+                align-items: flex-end;
+                padding: 0;
+            }
+
+            &.status {
+                .custom-badge {
+                    padding: 2.5px 8px;
+                    font-size: .7em;
+                    font-weight: 600;
+                    letter-spacing: .4px;
+                    
+                    color: #fff;
+                    border-radius: 8px;
+
+                    &.success{
+                        background-color: $success-color;
+                    }
+                }
+            }
+
+            &.from {
+                span {
+                    &:first-child {
+                        margin-right: 5px;
+                    }
+                }
+            }
+
+            &.to {
+                .value {
+                    a {
+                        .img-box {
+                            margin-right: 5px;
+                        }
+                    }
+                }
+            }
+
+            &.value {
+                .value {
+                    font-weight: 600;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}

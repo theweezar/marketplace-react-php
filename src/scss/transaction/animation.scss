@@ -1,0 +1,99 @@
+.animation {
+    &.popup {
+        animation: popup .5s cubic-bezier(.22, .68, .83, .96) forwards;
+
+        @for $i from 1 through 10 {
+            &:nth-child(#{$i}) {
+                animation-delay: #{$i * ( 0.2 - $i*0.005 )}s;
+            }
+        }
+    }
+
+    &.slide-from-right {
+        opacity: 0;
+        animation: slidefromRight .5s cubic-bezier(0, .66, .65, 1.03) forwards;
+        animation-delay: .5s;
+        @include media-breakpoint-up(lg){
+            @for $i from 1 through 20 {
+                &:nth-child(#{$i}) {
+                    animation-delay: #{$i * ( 0.2 - $i*0.005 )}s;
+                }
+            }
+        }
+        @for $i from 1 through 10 {
+            &:nth-child(#{$i}) {
+                animation-delay: #{$i * ( 0.2 - $i*0.005 )}s;
+            }
+        }
+    }
+
+    &.show {
+        animation: show .2s ease-in forwards;
+    }
+
+    &.hide {
+        animation: hide .2s .5s ease-out forwards;
+    }
+
+    &.slide-from-right-side-bar {
+        animation: slidefromRight .5s .1s cubic-bezier(0, .66, .65, 1.03) forwards;
+    }
+
+    &.slide-to-right-side-bar {
+        animation: slidetoRight .5s cubic-bezier(.71, .01, .77, 1) forwards;
+    }
+}
+
+@keyframes popup {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes hide {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes slidetoRight {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes slidefromRight {
+    0% {
+        transform: translateX(200%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,19 @@
+@import '../variables.scss';
+
+// ==================================================
+// For Component Transaction/Table
+// ==================================================
+.transaction__table__box {
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
+
+    .transaction__table {
+        width: 100%;
+        // -------------------------DESKTOP ------------------------
+        @import './tables/desktop-table.scss';
+        // -------------------------MOBILE ------------------------
+        @import './tables/mobile-table.scss';
+    }
+
+}

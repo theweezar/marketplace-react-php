@@ -1,0 +1,19 @@
+@import '../variables';
+@import '../common';
+
+// ==================================================
+// For Component TransactionLayout/Header
+// ==================================================
+header {
+  position: relative;
+  height: auto;
+  nav {
+      height: 100%;
+    // -------------------------BRANDING ------------------------
+    @import '../components/header/branding';
+    // -------------------------NAVIGATOR ------------------------
+    @import '../components/header/navigator';
+    // -------------------------SEARCHER ------------------------
+    @import '../components/header/searcher';
+  }
+}

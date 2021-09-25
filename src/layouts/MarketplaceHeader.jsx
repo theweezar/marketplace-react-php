@@ -70,9 +70,9 @@ export function MarketplaceHeader({...props}) {
                     <CgMenuGridR/>
                     <AiFillCaretDown/>
                 </div>
-                <Link to="/" className="d-none d-md-flex align-items-center btn-tab btn-dashboard">
+                <Link to="/transactions" className="d-none d-md-flex align-items-center btn-tab btn-dashboard">
                     <span className="d-flex align-items-center"><RiDashboardFill/></span>
-                    <span className="route-name ms-1">Dashboard</span>
+                    <span className="route-name ms-1">Transaction</span>
                 </Link>
                 <Link to="/" className="d-none d-md-flex align-items-center btn-tab btn-marketplace active">
                     <span className="d-flex align-items-center"><AiTwotoneShop/></span>

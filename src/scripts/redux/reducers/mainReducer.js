@@ -1,4 +1,6 @@
 import { combineReducers } from "redux";
+import { badge } from '../../../redux/reducers/badgeReducer';
+import { table } from '../../../redux/reducers/tableReducer';
 
 const isSideBarOpenReducer = (state = false, action) => {
     switch (action.type) {
@@ -32,7 +34,9 @@ const displayProductTileReducer = (state = 1, action) => {
 const allReducers = combineReducers({
     isSideBarOpen: isSideBarOpenReducer,
     isFilterOpen: isFilterOpenReducer,
-    displayProductTile: displayProductTileReducer
+    displayProductTile: displayProductTileReducer,
+    badge,
+    table
 });
 
 export default allReducers;

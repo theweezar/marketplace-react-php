@@ -1,0 +1,51 @@
+@import '../../variables';
+// ==================================================
+// For Component Footer/Sponsor
+// ==================================================
+.footer__sponsor_area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 30px;
+
+    @include media-breakpoint-up( lg ){
+        margin-bottom: 0px;
+        padding-left: 0;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+            .line-vertical{
+                margin: 0 16px;
+                height: 1em;
+                width: 0px;
+                border: 1px solid $line-vertical-color; 
+            }
+    }
+    // #01 : LOGOBOX
+    .logobox {
+        height: 100%;
+        cursor: pointer;
+        &:hover{
+            svg{
+                path{
+                    &#sponsor_logo{
+                        fill: #4c98ff;
+                    }
+                    &#sponsor_name{
+                        fill: #1d273d;
+                    }
+                }
+            }   
+        }
+        svg{
+            height: 40px;
+            color: $sponsor-color;
+        }
+    }
+    // #02 : COPYWRITING
+    .copywriting{
+        font-size: .9em;
+        font-weight: 600;
+        color: $sponsor-color;
+    }
+}

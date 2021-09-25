@@ -3,6 +3,14 @@
 @import './layout/rightSidebar';
 @import './layout/footer';
 
+.layout-wrapper {
+    color: white;
+    
+    a {
+        color: white;
+    }
+}
+
 .btn-customer-service-wrapper {
     position: absolute;
     bottom: 2rem;
