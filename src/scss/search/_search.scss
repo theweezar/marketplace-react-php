@@ -8,7 +8,7 @@
         @include media-breakpoint-up(md) {
             order: 2;
     
-            @include flex(calc(100% - 280px))
+            @include flex(calc(100% - 280px));
         }
     }
 
